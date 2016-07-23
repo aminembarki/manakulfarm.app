@@ -22,3 +22,4 @@ Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
 Route::post('password/reset', 'Auth\PasswordController@reset');
 
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');

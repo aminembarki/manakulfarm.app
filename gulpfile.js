@@ -14,20 +14,25 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix
     .styles([
-        'admin-lte/bootstrap/css/bootstrap.css',
-        'admin-lte/dist/css/AdminLTE.css',
-        'admin-lte/dist/css/skins/skin-blue.css',
-        'font-awesome/css/font-awesome.css',
-        'ionicons/dist/css/ionicons.css'
-    ], 'public/css/all.css', 'node_modules')
+        'node_modules/admin-lte/bootstrap/css/bootstrap.css',
+        'node_modules/admin-lte/dist/css/AdminLTE.css',
+        'node_modules/admin-lte/dist/css/skins/skin-blue.css',
+        'node_modules/font-awesome/css/font-awesome.css',
+        'node_modules/ionicons/dist/css/ionicons.css',
+        'node_modules/admin-lte/plugins/iCheck/square/blue.css'
+    ], 'public/css/all.css', './')
     .copy('node_modules/font-awesome/fonts', 'public/build/fonts')
     .copy('node_modules/ionicons/dist/fonts', 'public/build/fonts')
+    .copy('node_modules/bootstrap-sass/assets/fonts/bootstrap', 'public/build/fonts')
+    .copy('node_modules/admin-lte/plugins/iCheck/square/blue.png', 'public/build/css/blue.png')
 
     .scripts([
-        'admin-lte/plugins/jQuery/jquery-2.2.3.min.js',
-        'admin-lte/bootstrap/js/bootstrap.min.js',
-        'admin-lte/dist/js/app.min.js'
-    ], 'public/js/all.js', 'node_modules')
+        'node_modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js',
+        'node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
+        'node_modules/admin-lte/dist/js/app.min.js',
+        'node_modules/admin-lte/plugins/iCheck/icheck.min.js',
+        'resources/assets/js/icheck.js'
+    ], 'public/js/all.js', './')
 
     .version(['public/css/all.css', 'public/js/all.js'])
     ;
