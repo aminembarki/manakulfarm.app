@@ -31,7 +31,8 @@ elixir(function(mix) {
         'node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
         'node_modules/admin-lte/dist/js/app.min.js',
         'node_modules/admin-lte/plugins/iCheck/icheck.min.js',
-        'resources/assets/js/icheck.js'
+        'resources/assets/js/icheck.js',
+        'resources/assets/js/sidebar.js'
     ], 'public/js/all.js', './')
 
     .version(['public/css/all.css', 'public/js/all.js'])

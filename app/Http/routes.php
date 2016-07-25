@@ -23,3 +23,5 @@ Route::post('password/reset', 'Auth\PasswordController@reset');
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
+
+Route::resource('herd', 'HerdController', ['only' => ['index', 'show']]);
