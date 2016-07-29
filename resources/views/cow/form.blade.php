@@ -33,7 +33,7 @@
 
     <div class="form-group">
         {{ Form::label('mother', 'Mother') }}
-        {{ Form::select('mother_id', \App\Cow::all()->lists('name', 'id'), $cow->mother_id, ['class' => 'form-control', 'placeholder' => 'Please Select Mother']) }}
+        {{ Form::select('mother_id', \App\Cow::where('id', '<>', $cow->id)->get()->lists('name', 'id'), $cow->mother_id, ['class' => 'form-control', 'placeholder' => 'Please Select Mother']) }}
     </div>
 
 </div>
