@@ -28,7 +28,7 @@
 
     <div class="form-group">
         {{ Form::label('breeder', 'Breeder') }}
-        {{ Form::select('breeder_id', \App\Breeder::all()->lists('name', 'id'), $cow->breeder_id, ['class' => 'form-control select2 select2-breeder', 'placeholder' => 'Please Select Breeder']) }}
+        {{ Form::select('breeder_id', \App\Breeder::all()->lists('name', 'id'), $cow->breeder_id, ['class' => 'form-control select2-tags', 'placeholder' => 'Please Select Breeder']) }}
     </div>
 
     <div class="form-group">

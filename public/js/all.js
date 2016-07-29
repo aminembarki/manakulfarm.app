@@ -52,7 +52,8 @@ if(this.$element.prop("multiple"))this.current(function(d){var e=[];a=[a],a.push
     });
 }) ($);
 (function($) {
-    $('.select2.select2-breeder').select2({
+    $('.select2-tags').select2({
+        width: '100%',
         tags: true,
         createTag: function (params) {
             var term = $.trim(params.term).toUpperCase();
