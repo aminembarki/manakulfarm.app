@@ -108,6 +108,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'herd_id' => 'herd'
+    ],
 
 ];

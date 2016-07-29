@@ -8,13 +8,33 @@ use App\Http\Requests;
 
 use App\Cow;
 use App\Breeder;
-use App\Http\Requests\CowCreateRequest;
+use App\Http\Requests\CowRequest;
 
 class CowController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function params(Request $request)
+    {
+        $params = $request->all();
+
+        if ($params['breeder_id']) {
+            if ($breeder = Breeder::find($params['breeder_id']));
+            elseif($breeder = Breeder::where('name', $params['breeder_id'])->first());
+            else $breeder = Breeder::create(['name' => $params['breeder_id']]);
+
+            $params['breeder_id'] = $breeder->id;
+        } else {
+            $params['breeder_id'] = null;
+        }
+
+        if (!$params['birthdate'])
+            $params['birthdate'] == null;
+
+        return $params;
     }
 
     /**
@@ -35,66 +55,56 @@ class CowController extends Controller
     public function create()
     {
         $cow = new Cow;
-        return view('cow.create', compact('cow', 'herds'));
+        return view('cow.create', compact('cow'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\CowCreateRequest  $request
+     * @param  \App\Http\Requests\CowRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CowCreateRequest $request)
+    public function store(CowRequest $request)
     {
-        $params = $request->all();
-
-        if ($params['breeder_id']) {
-            if ($breeder = Breeder::find($params['breeder_id']));
-            elseif($breeder = Breeder::where('name', $params['breeder_id'])->first());
-            $breeder = Breeder::create(['name' => $params['breeder_id']]);
-
-            $params['breeder_id'] = $breeder->id;
-        } else {
-            $params['breeder_id'] = null;
-        }
-
+        $params = $this->params($request);
         $cow = Cow::create($params);
-
         return redirect( route('cow.show', ['cow' => $cow]) );
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Cow $cow
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cow $cow)
     {
-        //
+        return $this->edit($cow);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Cow $cow
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cow $cow)
     {
-        //
+        return view('cow.edit', compact('cow'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\CowRequest  $request
+     * @param  \App\Cow  $cow
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CowRequest $request, Cow $cow)
     {
-        //
+        $params = $this->params($request);
+        $cow->update($params);
+        return redirect( route('cow.show', ['cow' => $cow]) );
     }
 
     /**
