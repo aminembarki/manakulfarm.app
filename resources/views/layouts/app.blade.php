@@ -202,6 +202,7 @@
         {{-- <li class="header">HEADER</li> --}}
         <!-- Optionally, you can add icons to the links -->
         <li><a href="{{ route('herd.index') }}"><i class="fa fa-link"></i> <span>Herd</span></a></li>
+        <li><a href="{{ route('cow.index') }}"><i class="fa fa-link"></i> <span>Cow</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

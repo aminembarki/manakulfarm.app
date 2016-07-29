@@ -21,10 +21,6 @@ class CreateCowTable extends Migration
             $table->integer('breeder_id')->unsigned()->nullable();
             $table->integer('mother_id')->unsigned()->nullable();
             $table->timestamps();
-
-            $table->foreign('herd_id')->references('id')->on('herd');
-            $table->foreign('breeder_id')->references('id')->on('breeder');
-            $table->foreign('mother_id')->references('id')->on('cow');
         });
     }
 
