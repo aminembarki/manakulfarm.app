@@ -44,9 +44,12 @@
     
     @if ($cow->exists)
     <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fa fa-floppy-o"></i> Save</button>
+    <button type="button" class="btn btn-link pull-right" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash-o"></i> Delete</button>
     @else
     <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fa fa-floppy-o"></i> Create</button>
     @endif
 </div>
 
 {{ Form::close() }}
+
+{{ Form::bsModalDelete(route('cow.destroy', ['cow' => $cow]), 'delete-modal', "Delete {$cow->name}", "Are you sure to delete {$cow->name}?") }}

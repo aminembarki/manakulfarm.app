@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Form::component('bsErrors', 'bootstrap.errors', ['errors']);
+        Form::component('bsModalDelete', 'bootstrap.modalDelete', ['url', 'id', 'header', 'body']);
     }
 
     /**

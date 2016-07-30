@@ -32,7 +32,7 @@ class CowController extends Controller
         }
 
         if (!$params['birthdate'])
-            $params['birthdate'] == null;
+            $params['birthdate'] = null;
 
         return $params;
     }
@@ -44,7 +44,8 @@ class CowController extends Controller
      */
     public function index()
     {
-        //
+        $cows = Cow::all();
+        return view('cow.index', compact('cows'));
     }
 
     /**
@@ -110,11 +111,12 @@ class CowController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Cow  $cow
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cow $cow)
     {
-        //
+        $cow->delete();
+        return redirect( route('cow.index') );
     }
 }
