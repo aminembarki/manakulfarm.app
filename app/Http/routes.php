@@ -26,3 +26,4 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('herd', 'HerdController', ['only' => ['index', 'show']]);
 Route::resource('cow', 'CowController');
+Route::resource('breeding', 'BreedingController');
