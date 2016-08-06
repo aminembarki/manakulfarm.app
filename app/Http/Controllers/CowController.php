@@ -12,29 +12,11 @@ use App\Http\Requests\CowRequest;
 
 class CowController extends Controller
 {
+    use BreederTrait;
+
     public function __construct()
     {
         $this->middleware('auth');
-    }
-
-    public function params(Request $request)
-    {
-        $params = $request->all();
-
-        if ($params['breeder_id']) {
-            if ($breeder = Breeder::find($params['breeder_id']));
-            elseif($breeder = Breeder::where('name', $params['breeder_id'])->first());
-            else $breeder = Breeder::create(['name' => $params['breeder_id']]);
-
-            $params['breeder_id'] = $breeder->id;
-        } else {
-            $params['breeder_id'] = null;
-        }
-
-        if (!$params['birthdate'])
-            $params['birthdate'] = null;
-
-        return $params;
     }
 
     /**
@@ -103,7 +85,9 @@ class CowController extends Controller
      */
     public function update(CowRequest $request, Cow $cow)
     {
-        $params = $this->params($request);
+        $params = $request->all();
+        $params['birthdate'] = $params['birthdate'] ?: null;
+        $params['breeder_id'] = $this->findOrCreateBreeder($params['breeder_id']);
         $cow->update($params);
         return redirect( route('cow.show', ['cow' => $cow]) );
     }
