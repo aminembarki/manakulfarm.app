@@ -19,7 +19,8 @@ class BreedingController extends Controller
      */
     public function index()
     {
-        //
+        $breedings = Breeding::all();
+        return view('breeding.index', compact('breedings'));
     }
 
     /**
