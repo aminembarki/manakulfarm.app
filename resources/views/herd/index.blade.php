@@ -37,3 +37,7 @@
     </div>
 </div>
 @endsection
+
+@section('breadcrumbs')
+{!! Breadcrumbs::render('herd.index') !!}
+@endsection

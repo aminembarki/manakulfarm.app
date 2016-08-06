@@ -50,3 +50,7 @@
     </div>
 </div>
 @endsection
+
+@section('breadcrumbs')
+{!! Breadcrumbs::render('cow.index') !!}
+@endsection

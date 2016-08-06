@@ -20,3 +20,7 @@
     </div>
 </div>
 @endsection
+
+@section('breadcrumbs')
+{!! Breadcrumbs::render('herd.show', $herd) !!}
+@endsection

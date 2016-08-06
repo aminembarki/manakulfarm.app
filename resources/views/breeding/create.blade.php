@@ -19,3 +19,7 @@ Breeding <small>Create</small>
     </div>
 </div>
 @endsection
+
+@section('breadcrumbs')
+{!! Breadcrumbs::render('breeding.create') !!}
+@endsection

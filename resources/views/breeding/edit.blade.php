@@ -19,3 +19,7 @@ Breeding <small>Edit</small>
     </div>
 </div>
 @endsection
+
+@section('breadcrumbs')
+{!! Breadcrumbs::render('breeding.show', $breeding) !!}
+@endsection

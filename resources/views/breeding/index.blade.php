@@ -48,3 +48,7 @@
     </div>
 </div>
 @endsection
+
+@section('breadcrumbs')
+{!! Breadcrumbs::render('breeding.index') !!}
+@endsection
