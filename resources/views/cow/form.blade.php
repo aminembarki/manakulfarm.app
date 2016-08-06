@@ -28,12 +28,12 @@
 
     <div class="form-group">
         {{ Form::label('breeder', 'Breeder') }}
-        {{ Form::select('breeder_id', \App\Breeder::all()->lists('name', 'id'), $cow->breeder_id, ['class' => 'form-control select2-tags', 'placeholder' => 'Please Select Breeder']) }}
+        {{ Form::select('breeder_id', \App\Breeder::all()->lists('name', 'id'), $cow->breeder_id, ['class' => 'form-control select2-tags', 'data-placeholder' => 'Please Select Breeder', 'placeholder' => '']) }}
     </div>
 
     <div class="form-group">
         {{ Form::label('mother', 'Mother') }}
-        {{ Form::select('mother_id', \App\Cow::where('id', '<>', $cow->id)->get()->lists('name', 'id'), $cow->mother_id, ['class' => 'form-control', 'placeholder' => 'Please Select Mother']) }}
+        {{ Form::select('mother_id', \App\Cow::where('id', '<>', $cow->id)->get()->lists('name', 'id'), $cow->mother_id, ['class' => 'form-control select2', 'data-placeholder' => 'Please Select Mother', 'placeholder' => '']) }}
     </div>
 
 </div>

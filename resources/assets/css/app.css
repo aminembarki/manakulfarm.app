@@ -17,3 +17,12 @@
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+
+.select2-container--default .select2-selection__clear {
+    font-size: 25px;
+    color: #999;
+}
+
+.select2-container--default .select2-selection__clear:hover {
+    color: #000;
+}

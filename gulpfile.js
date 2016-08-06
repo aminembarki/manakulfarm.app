@@ -35,7 +35,7 @@ elixir(function(mix) {
         'node_modules/admin-lte/bootstrap/js/bootstrap.min.js',
         'node_modules/admin-lte/dist/js/app.min.js',
         'node_modules/admin-lte/plugins/iCheck/icheck.min.js',
-        'node_modules/admin-lte/plugins/select2/select2.full.min.js',
+        'node_modules/admin-lte/plugins/select2/select2.min.js',
         'resources/assets/js/icheck.js',
         'resources/assets/js/sidebar.js',
         'resources/assets/js/select2.js'
