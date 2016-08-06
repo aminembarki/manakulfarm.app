@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
 use App\Breeding;
+use App\Http\Requests\BreedingCreateRequest;
 
 class BreedingController extends Controller
 {
+    use BreederTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -37,18 +39,21 @@ class BreedingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BreedingCreateRequest $request)
     {
-        //
+        $params = $request->all();
+        $params['breeding_id'] = $this->findOrCreateBreeder($params['breeder_id']);
+        $breeding = Breeding::create($params);
+        return redirect( route('breeding.show', ['breeding' => $breeding]) );
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Breeding    $breeding
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Breeding $breeding)
     {
         //
     }

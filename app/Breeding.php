@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Breeding extends Model
 {
     protected $table = 'breeding';
+    protected $fillable = ['cow_id', 'breeder_id', 'service_date', 'in_charge', 'status', 'calving_date', 'dry_date'];
     protected $statuses = [
     // unconfirmed ─┬─> pregnant ─┬─> calving
     //              └─> infertile └─> abortion

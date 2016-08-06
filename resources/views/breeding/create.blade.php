@@ -25,7 +25,7 @@ Breeding <small>Create</small>
 
                 <div class="form-group">
                     {{ Form::label('breeder_id', 'Breeding') }}
-                    {{ Form::select('breeder_id', \App\Breeder::all()->lists('name', 'id'), $breeding->breeder_id, ['class' => 'form-control', 'placeholder' => 'Please Breeder']) }}                    
+                    {{ Form::select('breeder_id', \App\Breeder::all()->lists('name', 'id'), $breeding->breeder_id, ['class' => 'form-control select2-tags', 'placeholder' => 'Please Breeder']) }}                    
                </div>
 
                 <div class="form-group">
@@ -37,7 +37,6 @@ Breeding <small>Create</small>
                     {{ Form::label('in_charge', 'In Charge') }}
                     {{ Form::text('in_charge', $breeding->in_charge, ['class' => 'form-control']) }}
                 </div>
-
 
             </div>
 
