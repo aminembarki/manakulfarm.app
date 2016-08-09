@@ -45,7 +45,5 @@ $factory->define(App\Breeding::class, function(Faker\Generator $faker) {
         'service_date' => $faker->dateTimeThisDecade,
         'in_charge' => $faker->name,
         'status' => $faker->randomElement( array_pluck($breeding->getStatusList(), 'status') ),
-        'calving_date' => $faker->dateTimeThisDecade,
-        'dry_date' => $faker->dateTimeThisDecade,
     ];
 });

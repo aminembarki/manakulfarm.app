@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class Breeding extends Model
 {
     protected $table = 'breeding';
@@ -22,6 +24,19 @@ class Breeding extends Model
         ['status' => 'abortion','name' => 'abortion','possible' => []],
     ];
 
+    protected $calvingDays = 283;
+    protected $milkingDays = 305;
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($breeding) {
+            $breeding->calcPregnancyDate();
+            return true;
+        });
+    }
+
     public function getStatusList() {
         return $this->statusList;
     }
@@ -32,5 +47,12 @@ class Breeding extends Model
 
     public function breeder() {
         return $this->belongsTo('App\Breeder');
+    }
+
+    public function calcPregnancyDate() {
+        if ($this->calving_date == null)
+            $this->calving_date = $this->service_date->copy()->addDays($this->calvingDays);
+        if ($this->dry_date == null)
+            $this->dry_date = $this->calving_date->copy()->addDays($this->milkingDays);
     }
 }
