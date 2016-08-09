@@ -13,15 +13,16 @@ class Breeding extends Model
     protected $dates = ['service_date', 'calving_date', 'dry_date'];
 
     /**
-     * unconfirmed ─┬─> pregnant ─┬─> calving
-     *              └─> infertile └─> abortion
+     * UNCONFIRMED ─┬─> PREGNANT ─┬─> CALVING ───> DRY
+     *              └─> INFERTILE └─> ABORTION
      */
     protected $statusList = [
-        ['status' => 'unconfirmed','name' => 'unconfirmed','possible' => ['pregnant', 'infertile']],
-        ['status' => 'infertile','name' => 'infertile','possible' => []],
-        ['status' => 'pregnant','name' => 'pregnant','possible' => ['calving', 'abortion']],
-        ['status' => 'calving','name' => 'calving','possible' => []],
-        ['status' => 'abortion','name' => 'abortion','possible' => []],
+        ['status' => 'UNCONFIRMED', 'name' => 'unconfirmed', 'possible' => ['PREGNANT', 'INFERTILE']],
+        ['status' => 'INFERTILE', 'name' => 'infertile', 'possible' => []],
+        ['status' => 'PREGNANT', 'name' => 'pregnant', 'possible' => ['CALVING', 'ABORTION']],
+        ['status' => 'CALVING', 'name' => 'calving', 'possible' => ['DRY']],
+        ['status' => 'ABORTION', 'name' => 'abortion', 'possible' => []],
+        ['status' => 'DRY', 'name' => 'dry', 'possible' => []],
     ];
 
     protected $calvingDays = 283;
@@ -32,7 +33,7 @@ class Breeding extends Model
         parent::boot();
 
         static::creating(function ($breeding) {
-            $breeding->calcPregnancyDate();
+            $breeding->setPregnancyDate();
             return true;
         });
     }
@@ -49,10 +50,19 @@ class Breeding extends Model
         return $this->belongsTo('App\Breeder');
     }
 
-    public function calcPregnancyDate() {
+    public function setPregnancyDate() {
         if ($this->calving_date == null)
-            $this->calving_date = $this->service_date->copy()->addDays($this->calvingDays);
+            $this->calving_date = $this->forcastCalvingDate();
         if ($this->dry_date == null)
-            $this->dry_date = $this->calving_date->copy()->addDays($this->milkingDays);
+            $this->dry_date = $this->forcastDryDate();
+    }
+
+    public function forcastCalvingDate() {
+        return $this->service_date->copy()->addDays($this->calvingDays);
+    }
+
+    public function forcastDryDate() {
+        $calvingDate = $this->calving_date ?: $this->forcastCalvingDate();
+        return $calvingDate->copy()->addDays($this->milkingDays);
     }
 }
