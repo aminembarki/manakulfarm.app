@@ -21,4 +21,8 @@ class Cow extends Model
     public function mother() {
         return $this->belongsTo('App\Cow');
     }
+
+    public function breedings() {
+        return $this->hasMany('App\Breeding');
+    }
 }

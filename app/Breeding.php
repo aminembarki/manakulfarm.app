@@ -15,11 +15,11 @@ class Breeding extends Model
      *              └─> infertile └─> abortion
      */
     protected $statusList = [
-    ['status' => 'unconfirmed','name' => 'unconfirmed','possible' => ['pregnant', 'infertile']],
-    ['status' => 'infertile','name' => 'infertile','possible' => []],
-    ['status' => 'pregnant','name' => 'pregnant','possible' => ['calving', 'abortion']],
-    ['status' => 'calving','name' => 'calving','possible' => []],
-    ['status' => 'abortion','name' => 'abortion','possible' => []],
+        ['status' => 'unconfirmed','name' => 'unconfirmed','possible' => ['pregnant', 'infertile']],
+        ['status' => 'infertile','name' => 'infertile','possible' => []],
+        ['status' => 'pregnant','name' => 'pregnant','possible' => ['calving', 'abortion']],
+        ['status' => 'calving','name' => 'calving','possible' => []],
+        ['status' => 'abortion','name' => 'abortion','possible' => []],
     ];
 
     public function getStatusList() {
