@@ -19,7 +19,7 @@ class Cow extends Model
     }
 
     public function mother() {
-        return $this->belongsTo('App\Cow');
+        return $this->belongsTo('App\Cow', 'mother_id');
     }
 
     public function breedings() {

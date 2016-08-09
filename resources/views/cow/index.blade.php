@@ -37,7 +37,7 @@
                             <td>{{ $index + 1}}</a></td>
                             <td>{{ link_to_route('cow.show', $cow->name, ['cow' => $cow]) }}</td>
                             <td>{{ $cow->serial }}</td>
-                            <td>{{ $cow->birthdate ? $cow->birthdate->format('d/m/Y') : null }}</td>
+                            <td>@date($cow->birthdate)</td>
                             <td>{{ $cow->herd->name or null }}</td>
                             <td>{{ $cow->breeder->name or null }}</td>
                             <td>{{ $cow->mother->name or null }}</td>

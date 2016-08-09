@@ -36,7 +36,7 @@
                             <td>{{ $index + 1}}</a></td>
                             <td>{{ link_to_route('breeding.show', $breeding->cow->name, ['breeding' => $breeding]) }}</td>
                             <td>{{ $breeding->breeder->name }}</td>
-                            <td>{{ $breeding->service_date ? $breeding->service_date->format('d/m/Y') : null }}</td>
+                            <td>@date($breeding->service_date)</td>
                             <td>{{ $breeding->in_charge or null }}</td>
                             <td>{{ $breeding->status or null }}</td>
                         </tr>

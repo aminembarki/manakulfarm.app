@@ -62,7 +62,7 @@ class CowController extends Controller
      */
     public function show(Cow $cow)
     {
-        return $this->edit($cow);
+        return view('cow.show', compact('cow'));
     }
 
     /**
