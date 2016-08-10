@@ -65,7 +65,7 @@ class Breeding extends Model
     }
 
     public function getCalvingDate() {
-        if (in_array($this->status, ['LACTATE', 'DRY']))
+        if (in_array($this->status, ['LACTATE', 'ABORT', 'DRY']))
             return $this->calving_date;
         return null;
     }
