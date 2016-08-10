@@ -27,6 +27,5 @@ Route::get('/', function() {
 
 Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 
-Route::resource('herd', 'HerdController', ['only' => ['index', 'show']]);
 Route::resource('cow', 'CowController');
 Route::resource('breeding', 'BreedingController');
