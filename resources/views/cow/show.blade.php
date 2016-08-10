@@ -8,8 +8,11 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-8">
-    	@include('widgets.cow');
+    <div class="col-md-5">
+    	@include('box.cow.info');
+    </div>
+    <div class="col-md-7">
+    	@include('box.breeding.list', ['breedings' => $cow->breedings])
     </div>
 </div>
 @endsection
