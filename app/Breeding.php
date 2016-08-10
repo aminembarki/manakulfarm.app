@@ -65,4 +65,15 @@ class Breeding extends Model
         $calvingDate = $this->calving_date ?: $this->forcastCalvingDate();
         return $calvingDate->copy()->addDays($this->milkingDays);
     }
+
+    public function uncompleteStatusList() {
+        return array_filter($this->statusList, function($status) {
+            return count($status['possible']) > 0;
+        });
+    }
+
+    public function scopeUncomplete($query) {
+        return $query->whereIn('status', array_pluck($this->uncompleteStatusList(), 'status'));
+    }
+
 }
