@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
         Form::component('bsModalDelete', 'bootstrap.modalDelete', ['url', 'id', 'header', 'body']);
 
         Blade::directive('date', function($expression) {
-            return "<?php echo with{$expression} ? with{$expression}->format('m/d/Y') : null ?>";
+            return "<?php echo with{$expression} ? with{$expression}->format('d/m/Y') : null ?>";
         });
     }
 

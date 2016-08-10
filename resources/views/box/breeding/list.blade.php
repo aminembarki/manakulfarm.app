@@ -12,6 +12,8 @@
                     <th>Service Date</th>
                     <th>In Charge</th>
                     <th>Status</th>
+                    <th>Calving Date</th>
+                    <th>Dry Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +25,8 @@
                     <td>@date($breeding->service_date)</td>
                     <td>{{ $breeding->in_charge or null }}</td>
                     <td>{{ $breeding->status or null }}</td>
+                    <td>@date($breeding->getCalvingDate())</td>
+                    <td>@date($breeding->getDryDate())</td>
                 </tr>
                 @endforeach
             </tbody>

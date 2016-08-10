@@ -56,7 +56,7 @@ class BreedingController extends Controller
      */
     public function show(Breeding $breeding)
     {
-        return $this->edit($breeding);
+        return view('breeding.show', compact('breeding'));
     }
 
     /**

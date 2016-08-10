@@ -13,17 +13,20 @@ class Breeding extends Model
     protected $dates = ['service_date', 'calving_date', 'dry_date'];
 
     /**
-     * UNCONFIRMED ─┬─> PREGNANT ─┬─> CALVING ───> DRY
-     *              └─> INFERTILE └─> ABORTION
+     * UNCONFIRM ─┬─> PREGNANT ─┬─> LACTATE ───> DRY
+     *            └─> INFERTILE └─> ABORT
      */
     protected $statusList = [
-        ['status' => 'UNCONFIRMED', 'name' => 'unconfirmed', 'possible' => ['PREGNANT', 'INFERTILE']],
-        ['status' => 'INFERTILE', 'name' => 'infertile', 'possible' => []],
-        ['status' => 'PREGNANT', 'name' => 'pregnant', 'possible' => ['CALVING', 'ABORTION']],
-        ['status' => 'CALVING', 'name' => 'calving', 'possible' => ['DRY']],
-        ['status' => 'ABORTION', 'name' => 'abortion', 'possible' => []],
-        ['status' => 'DRY', 'name' => 'dry', 'possible' => []],
+        'UNCONFIRM' => ['status' => 'UNCONFIRM', 'name' => 'Unconfirm', 'possible' => ['PREGNANT', 'INFERTILE']],
+        'INFERTILE' => ['status' => 'INFERTILE', 'name' => 'Infertile', 'possible' => []],
+        'PREGNANT' => ['status' => 'PREGNANT', 'name' => 'Pregnant', 'possible' => ['LACTATE', 'ABORT']],
+        'LACTATE' => ['status' => 'LACTATE', 'name' => 'Lactate', 'possible' => ['DRY']],
+        'ABORT' => ['status' => 'ABORT', 'name' => 'Abort', 'possible' => []],
+        'DRY' => ['status' => 'DRY', 'name' => 'Dry', 'possible' => []],
     ];
+
+    protected $uncompleteStatus = ['UNCONFIRM', 'PREGNANT', 'LACTATE'];
+    protected $completeStatus = ['DRY', 'INFERTILE', 'ABORT'];
 
     protected $calvingDays = 283;
     protected $milkingDays = 305;
@@ -52,28 +55,31 @@ class Breeding extends Model
 
     public function setPregnancyDate() {
         if ($this->calving_date == null)
-            $this->calving_date = $this->forcastCalvingDate();
+            $this->calving_date = $this->service_date->copy()->addDays($this->calvingDays);
         if ($this->dry_date == null)
-            $this->dry_date = $this->forcastDryDate();
-    }
-
-    public function forcastCalvingDate() {
-        return $this->service_date->copy()->addDays($this->calvingDays);
-    }
-
-    public function forcastDryDate() {
-        $calvingDate = $this->calving_date ?: $this->forcastCalvingDate();
-        return $calvingDate->copy()->addDays($this->milkingDays);
-    }
-
-    public function uncompleteStatusList() {
-        return array_filter($this->statusList, function($status) {
-            return count($status['possible']) > 0;
-        });
+            $this->dry_date = $this->calving_date->copy()->addDays($this->milkingDays);
     }
 
     public function scopeUncomplete($query) {
-        return $query->whereIn('status', array_pluck($this->uncompleteStatusList(), 'status'));
+        return $query->whereIn('status', $this->uncompleteStatus);
+    }
+
+    public function getCalvingDate() {
+        if (in_array($this->status, ['LACTATE', 'DRY']))
+            return $this->calving_date;
+        return null;
+    }
+
+    public function getDryDate() {
+        if ($this->status == 'DRY')
+            return $this->dry_date;
+        return null;
+    }
+
+    public function getStatusName() {
+        if (isset($this->statusList[$this->status]))
+            return $this->statusList[$this->status]['name'];
+        return null;
     }
 
 }

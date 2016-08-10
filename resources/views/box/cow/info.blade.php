@@ -1,7 +1,9 @@
 <div class="box box-primary">
     <div class="box-header with-border">
         <h3 class="box-title">Cow Info</h3>
+        @if(isset($edit) && $edit)
         <a href="{{route('cow.edit', ['cow' => $cow])}}" class="pull-right"><i class="fa fa-edit"></i> Edit</a>
+        @endif
     </div>
     <div class="box-body">
         <dl class="dl-horizontal">
