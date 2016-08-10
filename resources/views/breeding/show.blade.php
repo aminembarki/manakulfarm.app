@@ -9,10 +9,10 @@ Breeding <small>Edit</small>
 @section('content')
 <div class="row">
     <div class="col-md-4">
-        @include('box.breeding.info', ['edit' => true])
+        @include('box.cow.info', ['cow' => $breeding->cow])
     </div>
     <div class="col-md-4">
-        @include('box.cow.info', ['cow' => $breeding->cow])
+        @include('box.breeding.info', ['edit' => true])
     </div>
 </div>
 @endsection

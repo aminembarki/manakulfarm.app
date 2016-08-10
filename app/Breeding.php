@@ -17,12 +17,46 @@ class Breeding extends Model
      *            └─> INFERTILE └─> ABORT
      */
     protected $statusList = [
-        'UNCONFIRM' => ['status' => 'UNCONFIRM', 'name' => 'Unconfirm', 'possible' => ['PREGNANT', 'INFERTILE']],
-        'INFERTILE' => ['status' => 'INFERTILE', 'name' => 'Infertile', 'possible' => []],
-        'PREGNANT' => ['status' => 'PREGNANT', 'name' => 'Pregnant', 'possible' => ['LACTATE', 'ABORT']],
-        'LACTATE' => ['status' => 'LACTATE', 'name' => 'Lactate', 'possible' => ['DRY']],
-        'ABORT' => ['status' => 'ABORT', 'name' => 'Abort', 'possible' => []],
-        'DRY' => ['status' => 'DRY', 'name' => 'Dry', 'possible' => []],
+        'UNCONFIRM' => [
+            'status' => 'UNCONFIRM',
+            'name' => 'Unconfirm',
+            'possible' => ['PREGNANT', 'INFERTILE'],
+            'btn' => 'btn-default',
+        ],
+        'INFERTILE' => [
+            'status' => 'INFERTILE',
+            'name' => 'Infertile',
+            'possible' => [],
+            'btn' => 'btn-danger',
+            'icon' => 'fa-times',
+        ],
+        'PREGNANT' => [
+            'status' => 'PREGNANT',
+            'name' => 'Pregnant',
+            'possible' => ['LACTATE', 'ABORT'],
+            'btn' => 'btn-primary',
+            'icon' => 'fa-check',
+        ],
+        'LACTATE' => [
+            'status' => 'LACTATE',
+            'name' => 'Lactate',
+            'possible' => ['DRY'],
+            'btn' => 'btn-primary',
+            'icon' => 'fa-check',
+        ],
+        'ABORT' => [
+            'status' => 'ABORT',
+            'name' => 'Abort',
+            'possible' => [],
+            'btn' => 'btn-danger',
+            'icon' => 'fa-times',
+        ],
+        'DRY' => [
+            'status' => 'DRY',
+            'name' => 'Dry',
+            'possible' => [],
+            'btn' => 'btn-default',
+        ],
     ];
 
     protected $uncompleteStatus = ['UNCONFIRM', 'PREGNANT', 'LACTATE'];
@@ -82,4 +116,9 @@ class Breeding extends Model
         return null;
     }
 
+    public function getPossibleStatus() {
+        return array_map(function($status) {
+            return $this->statusList[$status];
+        }, $this->statusList[$this->status]['possible']);
+    }
 }
