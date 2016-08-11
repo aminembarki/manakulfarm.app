@@ -320,7 +320,8 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
+@section('script')
 <script src="{{ url(elixir("js/all.js")) }}"></script>
+@show
 </body>
 </html>
