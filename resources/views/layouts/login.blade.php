@@ -7,6 +7,7 @@
     <title>AdminLTE 2 | Log in</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" type="text/css" href="{{ url(elixir("css/all.css")) }}">
+    <link rel="manifest" href="{{ url('manifest.json') }}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

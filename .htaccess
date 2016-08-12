@@ -12,7 +12,7 @@
     RewriteRule ^(.*)/$ /$1 [L,R=301]
 
     # Handle Front Controller...
-    RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt|\.eot|\.svg|\.ttf|\.woff|\.woff2)$ [NC]
+    RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt|\.json|\.eot|\.svg|\.ttf|\.woff|\.woff2|\.ico)$ [NC]
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ server.php [L]
@@ -21,7 +21,7 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_URI} !^/public/
-    RewriteRule ^(css|js|images|build)/(.*)$ public/$1/$2 [L,NC]
+    RewriteRule ^(.*)$ public/$1 [L,NC]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
