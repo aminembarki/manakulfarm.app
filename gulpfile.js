@@ -31,6 +31,7 @@ elixir(function(mix) {
     .copy('node_modules/ionicons/dist/fonts', 'public/build/fonts')
     .copy('node_modules/bootstrap-sass/assets/fonts/bootstrap', 'public/build/fonts')
     .copy('node_modules/admin-lte/plugins/iCheck/square/blue.png', 'public/build/css/blue.png')
+    .copy('node_modules/admin-lte/plugins/iCheck/square/blue@2x.png', 'public/build/css/blue@2x.png')
 
     .scripts([
         'node_modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js',

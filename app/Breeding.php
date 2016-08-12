@@ -22,6 +22,7 @@ class Breeding extends Model
             'name' => 'Unconfirm',
             'possible' => ['PREGNANT', 'INFERTILE'],
             'btn' => 'btn-default',
+            'icon' => 'fa-circle-o'
         ],
         'INFERTILE' => [
             'status' => 'INFERTILE',
@@ -56,6 +57,7 @@ class Breeding extends Model
             'name' => 'Dry',
             'possible' => [],
             'btn' => 'btn-default',
+            'icon' => 'fa-circle-o'
         ],
     ];
 
