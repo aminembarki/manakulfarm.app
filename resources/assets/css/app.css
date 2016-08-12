@@ -26,3 +26,7 @@
 .select2-container--default .select2-selection__clear:hover {
     color: #000;
 }
+
+.dataTables_wrapper tbody td {
+    text-align: left;
+}

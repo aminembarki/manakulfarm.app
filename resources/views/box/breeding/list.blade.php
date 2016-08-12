@@ -28,7 +28,7 @@
             })
         !!};
 
-        $('#{{ $id }}').DataTable({
+        var table = $('#{{ $id }}').DataTable({
             data: dataSet,
             responsive: true,
             columns: [
@@ -46,6 +46,12 @@
                 { type: 'date-uk', targets: 6 },
                 { type: 'date-uk', targets: 7 }
             ]
+        });
+
+        $(window).resize(function() {
+            table
+            .columns.adjust()
+            .responsive.recalc();
         });
     });
 </script>
