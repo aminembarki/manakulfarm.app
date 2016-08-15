@@ -25,4 +25,10 @@ class Cow extends Model
     public function breedings() {
         return $this->hasMany('App\Breeding');
     }
+
+    public function scopeActive($query) {
+        return $query->whereHas('herd', function($q) {
+            $q->where('active', true);
+        });
+    }
 }
