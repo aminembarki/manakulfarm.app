@@ -61,8 +61,9 @@ class Breeding extends Model
         ],
     ];
 
-    protected $uncompleteStatus = ['UNCONFIRM', 'PREGNANT', 'LACTATE'];
-    protected $completeStatus = ['DRY', 'INFERTILE', 'ABORT'];
+    public $uncompleteStatus = ['UNCONFIRM', 'PREGNANT', 'LACTATE'];
+    public $completeStatus = ['DRY', 'INFERTILE', 'ABORT'];
+    public $calvingStatus = ['LACTATE', 'ABORT', 'DRY'];
 
     protected $calvingDays = 283;
     protected $milkingDays = 305;
@@ -101,7 +102,7 @@ class Breeding extends Model
     }
 
     public function getCalvingDate() {
-        if (in_array($this->status, ['LACTATE', 'ABORT', 'DRY']))
+        if (in_array($this->status, $this->calvingStatus))
             return $this->calving_date;
         return null;
     }

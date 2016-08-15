@@ -26,6 +26,8 @@
     @if (isset($edit) && $edit)
     <div class="box-footer">
 
+        {{ Form::bsErrors($errors) }}
+
         @foreach($breeding->getPossibleStatus() as $status)
         <button type="button" class="btn {{$status['btn']}} btn-block btn-lg" data-toggle="modal" data-target="#breeding_{{$breeding->id}}{{$status['status']}}">
             <i class="fa {{$status['icon']}}"></i> {{$status['name']}}
@@ -34,6 +36,7 @@
 
         @foreach($breeding->getPossibleStatus() as $status)
         <div class="modal fade" id="breeding_{{$breeding->id}}{{$status['status']}}" tabindex="-1" role="dialog" aria-labelledby="breeding">
+            {{ Form::open(['url' => route('breeding.update.status', ['breeding' => $breeding, 'status' => $status['status']]), 'method' => 'put', 'class' => 'form-inline']) }}
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -41,14 +44,25 @@
                         <h4 class="modal-title">Change Breeding Status</h4>
                     </div>
                     <div class="modal-body">
-                        Are you sure change status to {{$status['name']}}?
+                        <div class="form-group" style="font-weight: normal;">
+                            Are you sure change status to {{$status['name']}}
+                            @if ( in_array($status['status'], $breeding->calvingStatus) )
+                            on <div class="input-group">
+                                {{ Form::date('date', date('Y-m-d'), ['class' => 'form-control']) }}
+                            </div>
+                            @endif
+                            ?
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> No</button>
-                        <button type="submit" class="btn {{$status['btn']}}"><i class="fa fa-check"></i> Yes</button>
+                        <button type="submit" class="btn {{$status['btn']}}">
+                            <i class="fa {{$status['icon']}}"></i> {{$status['name']}}
+                        </button>
                     </div>
                 </div>
             </div>
+            {{ Form::close() }}
         </div>
         @endforeach
     </div>

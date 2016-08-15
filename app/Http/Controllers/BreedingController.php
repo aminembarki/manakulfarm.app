@@ -108,4 +108,12 @@ class BreedingController extends Controller
         $breeding->delete();
         return redirect( route('breeding.index') );
     }
+
+    public function updateStatus(Request $request, Breeding $breeding, $status)
+    {
+        if ( in_array($status, $breeding->calvingStatus) ) {
+            $this->validate($request, ['date' => 'required']);
+        }
+        return $breeding;
+    }
 }
