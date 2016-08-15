@@ -30,3 +30,7 @@
 .dataTables_wrapper tbody td {
     text-align: left;
 }
+
+.navbar-nav>.user-menu>.dropdown-menu>li.user-header {
+    height: 140px;
+}

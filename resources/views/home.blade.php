@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('title', 'Dashboard')
+
+@section('header')
+Dashboard
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -8,5 +14,5 @@
 @endsection
 
 @section('breadcrumbs')
-    {!! Breadcrumbs::render('home') !!}
+{!! Breadcrumbs::render('home') !!}
 @endsection
