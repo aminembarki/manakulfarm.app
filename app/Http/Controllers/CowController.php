@@ -14,6 +14,11 @@ class CowController extends Controller
 {
     use BreederTrait;
 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth');
