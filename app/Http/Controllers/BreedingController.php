@@ -113,7 +113,15 @@ class BreedingController extends Controller
     {
         if ( in_array($status, $breeding->calvingStatus) ) {
             $this->validate($request, ['date' => 'required']);
+            if ($status == 'DRY') {
+                $breeding->dry_date = $request->input('date');
+            } else {
+                $breeding->calving_date = $request->input('date');
+                $breeding->dry_date = $breeding->calcDryDate();
+            }
         }
-        return $breeding;
+        $breeding->status = $status;
+        $breeding->save();
+        return back();
     }
 }

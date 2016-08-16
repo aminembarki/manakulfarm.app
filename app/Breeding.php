@@ -92,9 +92,17 @@ class Breeding extends Model
 
     public function setPregnancyDate() {
         if ($this->calving_date == null)
-            $this->calving_date = $this->service_date->copy()->addDays($this->calvingDays);
+            $this->calving_date = $this->calcCalvingDate();
         if ($this->dry_date == null)
-            $this->dry_date = $this->calving_date->copy()->addDays($this->milkingDays);
+            $this->dry_date = $this->calcDryDate();
+    }
+
+    public function calcCalvingDate() {
+        return $this->service_date->copy()->addDays($this->calvingDays);
+    }
+
+    public function calcDryDate() {
+        return $this->calving_date->copy()->addDays($this->milkingDays);
     }
 
     public function scopeUncomplete($query) {
