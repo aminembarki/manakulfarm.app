@@ -70,6 +70,7 @@
         <!-- Optionally, you can add icons to the links -->
         <li><a href="{{ route('cow.index') }}"><i class="fa fa-link"></i> <span>Cow</span></a></li>
         <li><a href="{{ route('breeding.index') }}"><i class="fa fa-link"></i> <span>Breeding</span></a></li>
+        <li><a href="{{ route('treatment.index') }}"><i class="fa fa-link"></i> <span>Treatment</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

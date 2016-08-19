@@ -17,7 +17,8 @@ class TreatmentController extends Controller
      */
     public function index()
     {
-        //
+        $treatments = Treatment::all();
+        return view('treatment.index', compact('treatments'));
     }
 
     /**
@@ -68,9 +69,9 @@ class TreatmentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Http\Requests\TreatmentRequest  $request
      * @param  \App\Treatment  $treatment
+     * @return \Illuminate\Http\Response
      */
     public function update(TreatmentRequest $request, Treatment  $treatment)
     {
@@ -83,11 +84,12 @@ class TreatmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Treatment  $treatment
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Treatment $treatment)
     {
-        //
+        $treatment->delete();
+        return redirect( route('treatment.index') );
     }
 }
