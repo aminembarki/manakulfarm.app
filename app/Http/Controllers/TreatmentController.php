@@ -46,35 +46,38 @@ class TreatmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Treatment  $treatment
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Treatment $treatment)
     {
-        //
+        return $this->edit($treatment);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Treatment  $treatment
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Treatment $treatment)
     {
-        //
+        return view('treatment.edit', compact('treatment'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \App\Http\Requests\TreatmentRequest  $request
+     * @param  \App\Treatment  $treatment
      */
-    public function update(Request $request, $id)
+    public function update(TreatmentRequest $request, Treatment  $treatment)
     {
-        //
+        $input = $request->all();
+        $input['done'] = $request->input('done', false);
+        $treatment->update($input);
+        return redirect( route('treatment.show', ['treatment' => $treatment]) );
     }
 
     /**

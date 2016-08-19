@@ -64,3 +64,12 @@ Breadcrumbs::register('treatment.create', function($breadcrumbs)
     $breadcrumbs->parent('treatment.index');
     $breadcrumbs->push('Create', route('treatment.create'));
 });
+
+Breadcrumbs::register('treatment.show', function($breadcrumbs, App\Treatment $treatment)
+{
+    $breadcrumbs->parent('treatment.index');
+    $breadcrumbs->push(
+        $treatment->cow->name." on ".$treatment->start_date->format('m/d/Y'),
+        route('treatment.show',['treatment' => $treatment])
+    );
+});
