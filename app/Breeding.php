@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use Carbon\Carbon;
+use App\Treatment;
 
 class Breeding extends Model
 {
@@ -131,5 +132,9 @@ class Breeding extends Model
         return array_map(function($status) {
             return $this->statusList[$status];
         }, $this->statusList[$this->status]['possible']);
+    }
+
+    public function treatment() {
+        return $this->morphOne(Treatment::class, 'treatable');
     }
 }

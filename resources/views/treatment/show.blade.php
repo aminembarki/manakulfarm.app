@@ -14,6 +14,9 @@ Treatment <small>{{$treatment->cow->name}}</small>
     <div class="col-md-6 col-lg-4">
         @include('box.treatment.info', ['edit' => true])
     </div>
+    <div class="col-md-6 col-lg-4">
+        @include('box.treatment.breeding')
+    </div>
 </div>
 @endsection
 

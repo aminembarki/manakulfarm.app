@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Breeding;
+use App\Treatment;
 use App\Http\Requests\BreedingRequest;
 
 class BreedingController extends Controller
@@ -38,9 +39,18 @@ class BreedingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $breeding = new Breeding;
+
+        if ($treatmentId = $request->input('treatment_id')) {
+            $treatment = Treatment::findOrFail($treatmentId);
+            $breeding->cow_id = $treatment->cow_id;
+            $breeding->service_date = $treatment->date;
+            $breeding->in_charge = $treatment->in_charge;
+            return view('breeding.create', compact('breeding', 'treatment'));
+        }
+
         return view('breeding.create', compact('breeding'));
     }
 
@@ -55,6 +65,13 @@ class BreedingController extends Controller
         $params = $request->all();
         $params['breeding_id'] = $this->findOrCreateBreeder($params['breeder_id']);
         $breeding = Breeding::create($params);
+
+        if ($treatmentId = $request->input('treatment_id')) {
+            $treatment = Treatment::findOrFail($treatmentId);
+            $treatment->treatable()->associate($breeding)->save();
+            return redirect( route('treatment.show', ['treatment' => $treatment]) );
+        }
+
         return redirect( route('breeding.show', ['breeding' => $breeding]) );
     }
 

@@ -23,4 +23,9 @@ class Treatment extends Model
     public function cow() {
         return $this->belongsTo(Cow::class);
     }
+
+    public function treatable()
+    {
+        return $this->morphTo();
+    }
 }

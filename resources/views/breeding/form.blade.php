@@ -45,7 +45,11 @@
 
     @else
 
-    {{ Form::hidden('status', 'unconfirmed') }}
+    {{ Form::hidden('status', 'UNCONFIRM') }}
+
+        @if (isset($treatment))
+            {{ Form::hidden('treatment_id', $treatment->id) }}
+        @endif
     
     @endif
 </div>
