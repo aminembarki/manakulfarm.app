@@ -30,3 +30,4 @@ Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::resource('cow', 'CowController');
 Route::resource('breeding', 'BreedingController');
 Route::put('breeding/{breeding}/status/{status}', 'BreedingController@updateStatus')->name('breeding.update.status');
+Route::resource('treatment', 'TreatmentController');

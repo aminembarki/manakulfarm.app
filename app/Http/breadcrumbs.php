@@ -52,3 +52,15 @@ Breadcrumbs::register('breeding.show', function($breadcrumbs, App\Breeding $bree
     $breadcrumbs->parent('breeding.index');
     $breadcrumbs->push($breeding->cow->name." on ".$breeding->service_date->format('m/d/Y'), route('breeding.show', ['breeding' => $breeding]));
 });
+
+Breadcrumbs::register('treatment.index', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Treatment', route('treatment.index'));
+});
+
+Breadcrumbs::register('treatment.create', function($breadcrumbs)
+{
+    $breadcrumbs->parent('treatment.index');
+    $breadcrumbs->push('Create', route('treatment.create'));
+});
