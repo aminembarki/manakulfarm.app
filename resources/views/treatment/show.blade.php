@@ -8,11 +8,11 @@ Treatment <small>{{$treatment->cow->name}}</small>
 
 @section('content')
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6 col-lg-4">
         @include('box.cow.info', ['cow' => $treatment->cow])
     </div>
-    <div class="col-md-4">
-        @include('box.treatment.info')
+    <div class="col-md-6 col-lg-4">
+        @include('box.treatment.info', ['edit' => true])
     </div>
 </div>
 @endsection

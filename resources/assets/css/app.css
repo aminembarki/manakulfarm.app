@@ -34,3 +34,33 @@
 .navbar-nav>.user-menu>.dropdown-menu>li.user-header {
     height: 140px;
 }
+
+@media (min-width: 320px) {
+    .dl-horizontal dt {
+        float: left;
+        width: 100px;
+        overflow: hidden;
+        clear: left;
+        text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .dl-horizontal dd {
+        margin-left: 120px;
+    }
+}
+
+@media (min-width: 768px) {
+    .dl-horizontal dt {
+        float: left;
+        width: 160px;
+        overflow: hidden;
+        clear: left;
+        text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .dl-horizontal dd {
+        margin-left: 180px;
+    }
+}
