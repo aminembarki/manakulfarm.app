@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Treatment;
+use App\Http\Requests\TreatmentRequest;
 
 class TreatmentController extends Controller
 {
@@ -33,12 +34,13 @@ class TreatmentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\TreatmentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TreatmentRequest $request)
     {
-        //
+        $treatment = Treatment::create($request->all());
+        return redirect( route('treatment.show', ['treatment' => $treatment]) );
     }
 
     /**
