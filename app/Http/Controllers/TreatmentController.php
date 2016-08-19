@@ -52,7 +52,7 @@ class TreatmentController extends Controller
      */
     public function show(Treatment $treatment)
     {
-        return $this->edit($treatment);
+        return view('treatment.show', compact('treatment'));
     }
 
     /**
