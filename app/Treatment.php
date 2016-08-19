@@ -8,8 +8,8 @@ use App\Cow;
 class Treatment extends Model
 {
     protected $table = 'treatment';
-    protected $fillable = ['cow_id', 'start_date', 'end_date', 'type', 'summary', 'in_charge', 'cost', 'done'];
-    protected $dates = ['start_date', 'end_date'];
+    protected $fillable = ['cow_id', 'date', 'type', 'summary', 'in_charge', 'cost', 'done'];
+    protected $dates = ['date'];
 
     public $typeList = [
         'pregnancy_diagnose' => 'pregnancy_diagnose',

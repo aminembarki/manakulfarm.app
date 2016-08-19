@@ -12,13 +12,8 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('start_date', 'Start Date') }}
-        {{ Form::date('start_date', $treatment->start_date ?: date('Y-m-d'), ['class' => 'form-control']) }}
-    </div>
-
-    <div class="form-group">
-        {{ Form::label('end_date', 'End Date') }}
-        {{ Form::date('end_date', $treatment->end_date ?: date('Y-m-d'), ['class' => 'form-control']) }}
+        {{ Form::label('date', 'Date') }}
+        {{ Form::date('date', $treatment->date ?: date('Y-m-d'), ['class' => 'form-control']) }}
     </div>
 
     <div class="form-group">
@@ -64,17 +59,3 @@
 {{ Form::close() }}
 
 {{ Form::bsModalDelete(route('treatment.destroy', ['treatment' => $treatment]), 'delete-modal', "Delete {$treatment->name}", "Are you sure to delete {$treatment->name}?") }}
-
-@section('script')
-
-@parent
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#start_date').change(function(event) {
-            $('#end_date').val( $(this).val() );
-        });
-    });
-</script>
-
-@endsection

@@ -69,7 +69,7 @@ Breadcrumbs::register('treatment.show', function($breadcrumbs, App\Treatment $tr
 {
     $breadcrumbs->parent('treatment.index');
     $breadcrumbs->push(
-        $treatment->cow->name." on ".$treatment->start_date->format('m/d/Y'),
-        route('treatment.show',['treatment' => $treatment])
+        $treatment->cow->name." on ".$treatment->date->format('m/d/Y'),
+        route('treatment.show', ['treatment' => $treatment])
     );
 });

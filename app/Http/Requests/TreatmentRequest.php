@@ -25,8 +25,7 @@ class TreatmentRequest extends Request
     {
         return [
             'cow_id' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'date' => 'required',
             'type' => 'required',
         ];
     }

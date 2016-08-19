@@ -15,8 +15,7 @@ class CreateTreatmentTable extends Migration
         Schema::create('treatment', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cow_id')->unsigned();
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->date('date');
             $table->string('type');
             $table->string('summary')->nullable();
             $table->string('in_charge')->nullable();

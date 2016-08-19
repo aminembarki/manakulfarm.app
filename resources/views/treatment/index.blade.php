@@ -41,8 +41,7 @@
                 return [
                     $index + 1,
                     link_to_route('treatment.show', $treatment->cow->name, ['treatment' => $treatment])->toHtml(),
-                    $treatment->start_date ? $treatment->start_date->format('d/m/Y') : null,
-                    $treatment->end_date ? $treatment->end_date->format('d/m/Y') : null,
+                    $treatment->date ? $treatment->date->format('d/m/Y') : null,
                     $treatment->typeList[$treatment->type],
                     $treatment->summary,
                     $treatment->in_charge,
@@ -58,8 +57,7 @@
             columns: [
                 { title: "#"},
                 { title: "Cow"},
-                { title: "Start Date"},
-                { title: "End Date"},
+                { title: "Date"},
                 { title: "Type"},
                 { title: "Summary"},
                 { title: "In Charge"},
@@ -67,8 +65,7 @@
                 { title: "Done"}
             ],
             columnDefs: [
-                { type: 'date-uk', targets: 2 },
-                { type: 'date-uk', targets: 3 }
+                { type: 'date-uk', targets: 2 }
             ]
         });
 
