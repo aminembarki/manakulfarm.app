@@ -6,6 +6,9 @@
         @endif
     </div>
     <div class="box-body">
+        <div class="thumbnail">
+            <img src="{{ url('images/cow.svg') }}">
+        </div>
         <dl class="dl-horizontal">
             <dt>Name</dt>
             <dd>{{$cow->name}}</dd>
