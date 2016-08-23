@@ -14,7 +14,7 @@ Treatment <small>{{$treatment->cow->name}}</small>
     <div class="col-md-6 col-lg-4">
         @include('box.treatment.info', ['edit' => true])
     </div>
-    @if ( in_array($treatment->type, ['pregnancy_diagnose', 'breeding']) )
+    @if ( in_array($treatment->type, ['PREGNANCY_DIAGNOSE', 'BREEDING']) )
     <div class="col-md-6 col-lg-4">
         @include('box.treatment.breeding')
     </div>

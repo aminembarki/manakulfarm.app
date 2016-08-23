@@ -1,5 +1,5 @@
 @if( $treatment->treatable )
-@include( 'box.breeding.info', ['breeding' => $treatment->treatable, 'edit' => $treatment->treatable->status == 'UNCONFIRM' && $treatment->type == 'pregnancy_diagnose'] )
+@include( 'box.breeding.info', ['breeding' => $treatment->treatable, 'edit' => $treatment->treatable->status == 'UNCONFIRM' && $treatment->type == 'PREGNANCY_DIAGNOSE'] )
 @else
 {{ Form::open(['url' => route('treatment.update.treatable', ['treatment' => $treatment]), 'method' => 'put']) }}
 <div class="box box-primary">

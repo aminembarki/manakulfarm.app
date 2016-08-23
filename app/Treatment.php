@@ -12,12 +12,12 @@ class Treatment extends Model
     protected $dates = ['date'];
 
     public $typeList = [
-        'pregnancy_diagnose' => 'pregnancy_diagnose',
-        'breeding' => 'breeding',
-        'medication' => 'medication',
-        'vaccination' => 'vaccination',
-        'accident' => 'accident',
-        'other' => 'other',
+        'BREEDING' => 'Breeding',
+        'PREGNANCY_DIAGNOSE' => 'Pregnancy Diagnose',
+        'MEDICATION' => 'Medication',
+        'VACCIANTION' => 'Vaccination',
+        'ACCIDENT' => 'Accident',
+        'OTHER' => 'Other',
     ];
 
     public function cow() {

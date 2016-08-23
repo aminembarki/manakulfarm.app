@@ -139,14 +139,14 @@ class Breeding extends Model
     }
 
     public function createTreatments() {
-        $breeding = $this->treatments()->where('type', 'breeding')->first();
-        $pregnancyDiagnose = $this->treatments()->where('type', 'pregnancy_diagnose')->first();
+        $breeding = $this->treatments()->where('type', 'BREEDING')->first();
+        $pregnancyDiagnose = $this->treatments()->where('type', 'PREGNANCY_DIAGNOSE')->first();
 
         if (!$breeding) {
             $this->treatments()->create([
                 "cow_id" => $this->cow_id,
                 "date" => $this->service_date->copy(),
-                "type" => 'breeding',
+                "type" => 'BREEDING',
                 "in_charge" => $this->in_charge,
                 "done" => true,
             ]);
@@ -156,8 +156,7 @@ class Breeding extends Model
             $this->treatments()->create([
                 "cow_id" => $this->cow_id,
                 "date" => $this->service_date->copy()->addMonths(2),
-                "type" => 'pregnancy_diagnose',
-                "in_charge" => $this->in_charge,
+                "type" => 'PREGNANCY_DIAGNOSE',
             ]);
         }
     }
