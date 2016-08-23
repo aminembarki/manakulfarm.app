@@ -134,7 +134,12 @@ class Breeding extends Model
         }, $this->statusList[$this->status]['possible']);
     }
 
-    public function treatment() {
-        return $this->morphOne(Treatment::class, 'treatable');
+    public function treatments() {
+        return $this->morphMany(Treatment::class, 'treatable');
+    }
+
+    public function getFullNameAttribute()
+    {
+        return "{$this->breeder->name} on " . $this->service_date->format('d/m/Y');
     }
 }

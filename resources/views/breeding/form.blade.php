@@ -48,7 +48,12 @@
     {{ Form::hidden('status', 'UNCONFIRM') }}
 
         @if (isset($treatment))
-            {{ Form::hidden('treatment_id', $treatment->id) }}
+        <div class="checkbox icheck">
+            <label>
+                {{ Form::checkbox('treatment_id', $treatment->id, true) }}
+                Create for treatment and redirect back
+            </label>
+        </div>
         @endif
     
     @endif

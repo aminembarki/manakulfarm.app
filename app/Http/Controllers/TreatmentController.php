@@ -77,8 +77,27 @@ class TreatmentController extends Controller
     {
         $input = $request->all();
         $input['done'] = $request->input('done', false);
+
+        if ($input['type'] != $treatment->type) {
+            $input['treatable_id'] = $input['treatable_type'] = null;
+        }
+
         $treatment->update($input);
         return redirect( route('treatment.show', ['treatment' => $treatment]) );
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Treatment  $treatment
+     * @return \Illuminate\Http\Response
+     */
+    public function updateTreatable(Request $request, Treatment  $treatment)
+    {
+        $input = $request->all();
+        $treatment->update($input);
+        return back();
     }
 
     /**

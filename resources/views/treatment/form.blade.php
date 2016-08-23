@@ -8,7 +8,7 @@
 
     <div class="form-group">
         {{ Form::label('cow_id', 'Cow') }}
-        {{ Form::select('cow_id', \App\Cow::all()->lists('name', 'id'), $treatment->cow_id, ['class' => 'form-control select2', 'data-placeholder' => 'Please Cow', 'placeholder' => '']) }}                    
+        {{ Form::select('cow_id', \App\Cow::all()->lists('name', 'id'), $treatment->cow_id, ['class' => 'form-control select2', 'data-placeholder' => 'Please Cow', 'placeholder' => '', 'disable' => true]) }}                    
     </div>
 
     <div class="form-group">

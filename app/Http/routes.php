@@ -31,3 +31,4 @@ Route::resource('cow', 'CowController');
 Route::resource('breeding', 'BreedingController');
 Route::put('breeding/{breeding}/status/{status}', 'BreedingController@updateStatus')->name('breeding.update.status');
 Route::resource('treatment', 'TreatmentController');
+Route::put('treatment/{treatment}/treatable', 'TreatmentController@updateTreatable')->name('treatment.update.treatable');
