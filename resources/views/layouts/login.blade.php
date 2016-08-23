@@ -8,7 +8,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" type="text/css" href="{{ url(elixir("css/all.css")) }}">
     <link rel="manifest" href="{{ url('manifest.json') }}">
-
+    <link rel="icon" type="image/png" href="{{ url('images/launcher-icon-1x.png') }}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

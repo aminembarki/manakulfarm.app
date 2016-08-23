@@ -7,6 +7,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">  <!-- Font Awesome -->
   <link rel="stylesheet" type="text/css" href="{{ url(elixir("css/all.css")) }}">
   <link rel="manifest" href="{{ url('manifest.json') }}">
+  <link rel="icon" type="image/png" href="{{ url('images/launcher-icon-1x.png') }}">
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
