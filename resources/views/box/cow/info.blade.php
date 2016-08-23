@@ -6,8 +6,12 @@
         @endif
     </div>
     <div class="box-body">
-        <div class="thumbnail">
-            <img src="{{ url('images/cow.svg') }}">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="thumbnail">
+                    <img src="{{ url('images/cow.svg') }}">
+                </div>
+            </div>
         </div>
         <dl class="dl-horizontal">
             <dt>Name</dt>
