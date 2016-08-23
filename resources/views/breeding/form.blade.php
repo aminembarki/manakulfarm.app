@@ -55,6 +55,13 @@
             </label>
         </div>
         @endif
+
+        <div class="checkbox icheck">
+            <label>
+                {{ Form::checkbox('with_treatments', true, true) }}
+                Create treatements as possible
+            </label>
+        </div>
     
     @endif
 </div>

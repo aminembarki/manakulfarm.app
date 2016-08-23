@@ -138,6 +138,30 @@ class Breeding extends Model
         return $this->morphMany(Treatment::class, 'treatable');
     }
 
+    public function createTreatments() {
+        $breeding = $this->treatments()->where('type', 'breeding')->first();
+        $pregnancyDiagnose = $this->treatments()->where('type', 'pregnancy_diagnose')->first();
+
+        if (!$breeding) {
+            $this->treatments()->create([
+                "cow_id" => $this->cow_id,
+                "date" => $this->service_date->copy(),
+                "type" => 'breeding',
+                "in_charge" => $this->in_charge,
+                "done" => true,
+            ]);
+        }
+
+        if (!$pregnancyDiagnose) {
+            $this->treatments()->create([
+                "cow_id" => $this->cow_id,
+                "date" => $this->service_date->copy()->addMonths(2),
+                "type" => 'pregnancy_diagnose',
+                "in_charge" => $this->in_charge,
+            ]);
+        }
+    }
+
     public function getFullNameAttribute()
     {
         return "{$this->breeder->name} on " . $this->service_date->format('d/m/Y');

@@ -72,6 +72,9 @@ class BreedingController extends Controller
             return redirect( route('treatment.show', ['treatment' => $treatment]) );
         }
 
+        if ($request->input('with_treatments'))
+            $breeding->createTreatments();
+
         return redirect( route('breeding.show', ['breeding' => $breeding]) );
     }
 
