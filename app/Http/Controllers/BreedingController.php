@@ -69,11 +69,13 @@ class BreedingController extends Controller
         if ($treatmentId = $request->input('treatment_id')) {
             $treatment = Treatment::findOrFail($treatmentId);
             $treatment->treatable()->associate($breeding)->save();
-            return redirect( route('treatment.show', ['treatment' => $treatment]) );
         }
 
         if ($request->input('with_treatments'))
             $breeding->createTreatments();
+
+        if ($treatmentId)
+            return redirect( route('treatment.show', ['treatment' => $treatment]) );
 
         return redirect( route('breeding.show', ['breeding' => $breeding]) );
     }
