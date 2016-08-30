@@ -1,7 +1,7 @@
 @if ($cow->exists)
-{{ Form::open(['url' => route('cow.update', ['cow' => $cow]), 'method' => 'put']) }}
+{{ Form::open(['url' => route('cow.update', ['cow' => $cow]), 'method' => 'put', 'files' => true]) }}
 @else
-{{ Form::open(['url' => route('cow.store')]) }}
+{{ Form::open(['url' => route('cow.store'), 'files' => true]) }}
 @endif
 
 <div class="box-body">
@@ -34,6 +34,11 @@
     <div class="form-group">
         {{ Form::label('mother', 'Mother') }}
         {{ Form::select('mother_id', \App\Cow::where('id', '<>', $cow->id)->get()->lists('name', 'id'), $cow->mother_id, ['class' => 'form-control select2', 'data-placeholder' => 'Please Select Mother', 'placeholder' => '']) }}
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('images[]', 'Images') }}
+        {{ Form::file('images[]', ['multiple' => 'multiple']) }}
     </div>
 
 </div>

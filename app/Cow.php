@@ -31,4 +31,29 @@ class Cow extends Model
             $q->where('active', true);
         });
     }
+
+    public function uploadImages($images = []) {
+        $cacheDir = 'app/public';
+        foreach ($images as $image) {
+            if ($image = $image->move(storage_path($cacheDir), $image->getClientOriginalName())) {
+                $path = $image->getRealPath();
+                try {
+                    $url = app()->imgur->upload($path);
+                    $this->images()->create(compact('url'));
+                } catch (Exception $e) {
+                    
+                }
+                \File::delete($path);
+            }
+        }
+        return $this->images;
+    }
+
+    public function images() {
+        return $this->morphMany('App\Image', 'imageable');
+    }
+
+    public function defaultImageUrl() {
+        return $this->images[0] ? $this->images[0]->url : url('images/cow.svg');
+    }
 }

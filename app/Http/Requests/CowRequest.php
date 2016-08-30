@@ -26,6 +26,7 @@ class CowRequest extends Request
         return [
             'name' => 'required',
             'herd_id' => 'required',
+            'images.*' => 'image'
         ];
     }
 }

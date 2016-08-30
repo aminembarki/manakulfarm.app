@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="thumbnail">
-                    <img src="{{ url('images/cow.svg') }}">
+                    <img src="{{ $cow->defaultImageUrl() }}">
                 </div>
             </div>
         </div>

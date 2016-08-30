@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use Storage;
 use App\Cow;
 use App\Breeder;
 use App\Http\Requests\CowRequest;
+use RemoteImageUploader\Adapters\Imgur;
 
 class CowController extends Controller
 {
@@ -94,6 +95,7 @@ class CowController extends Controller
         $params['birthdate'] = $params['birthdate'] ?: null;
         $params['breeder_id'] = $this->findOrCreateBreeder($params['breeder_id']);
         $cow->update($params);
+        $cow->uploadImages( $request->file("images") );
         return redirect( route('cow.show', ['cow' => $cow]) );
     }
 
