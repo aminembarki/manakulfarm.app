@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Image;
 
 class Cow extends Model
 {
@@ -33,18 +34,9 @@ class Cow extends Model
     }
 
     public function uploadImages($images = []) {
-        $cacheDir = 'app/public';
         foreach ($images as $image) {
-            if ($image = $image->move(storage_path($cacheDir), $image->getClientOriginalName())) {
-                $path = $image->getRealPath();
-                try {
-                    $url = app()->imgur->upload($path);
-                    $this->images()->create(compact('url'));
-                } catch (Exception $e) {
-                    
-                }
-                \File::delete($path);
-            }
+            if ($url = Image::upload($image))
+                $this->images()->create(compact('url'));
         }
         return $this->images;
     }
