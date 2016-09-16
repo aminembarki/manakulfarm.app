@@ -46,6 +46,6 @@ class Cow extends Model
     }
 
     public function defaultImageUrl() {
-        return $this->images[0] ? $this->images[0]->url : url('images/cow.svg');
+        return isset($this->images[0]) ? $this->images[0]->url : url('images/cow.svg');
     }
 }

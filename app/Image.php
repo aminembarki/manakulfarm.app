@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Intervention\Image\Facades\Image as Intervention;
 
 class Image extends Model
 {
@@ -10,17 +11,26 @@ class Image extends Model
     protected $fillable = ['url'];
 
     static public function upload($file) {
-        $cacheDir = storage_path('app/public');
-        $file = $file->move($cacheDir, $file->getClientOriginalName());
-        if ($file) {
-            $path = $file->getRealPath();
+        $path = storage_path('app/public/'.$file->getClientOriginalName());
+        $image = Intervention::make($file->getRealPath());
+
+        $fn = $image->height() > $image->width() ? 'heighten' : 'widen';
+        call_user_func([$image, $fn], 800, function ($constraint) {
+            $constraint->upsize();
+        });
+
+        if ( $image->save($path) ) {
+
             try {
                 $url = app()->imgur->upload($path);
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
 
             }
+
             \File::delete($path);
+
         }
+
         return isset($url) ? $url : false;
     }
 }
