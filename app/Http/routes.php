@@ -32,3 +32,8 @@ Route::resource('breeding', 'BreedingController');
 Route::put('breeding/{breeding}/status/{status}', 'BreedingController@updateStatus')->name('breeding.update.status');
 Route::resource('treatment', 'TreatmentController');
 Route::put('treatment/{treatment}/treatable', 'TreatmentController@updateTreatable')->name('treatment.update.treatable');
+Route::group(['prefix' => 'dashboard'], function() {
+    Route::get('herds', 'DashboardController@herds');
+    Route::get('breedings/status/{status}', 'DashboardController@breedingsByStatus');
+    Route::get('treatments/notdone', 'DashboardController@treatmentsNotDone');
+});

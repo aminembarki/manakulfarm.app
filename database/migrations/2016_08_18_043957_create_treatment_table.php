@@ -20,7 +20,7 @@ class CreateTreatmentTable extends Migration
             $table->string('summary')->nullable();
             $table->string('in_charge')->nullable();
             $table->double('cost')->nullable();
-            $table->string('done')->nullable();
+            $table->boolean('done');
             $table->timestamps();
 
             $table->foreign('cow_id')->references('id')->on('cow');
