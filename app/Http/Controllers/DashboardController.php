@@ -23,6 +23,15 @@ class DashboardController extends Controller
 
     private function attachData(&$collection) {
         $collection = $collection->map(function($model) {
+            switch (get_class($model)) {
+                case Treatment::class:
+                    $model->url = route('treatment.show', ['treatment' => $model]);
+                    break;
+
+                case Breeding::class:
+                    $model->url = route('breeding.show', ['breeding' => $model]);
+                    break;
+            }
             $model->cows;
             $model->cow;
             return $model;
