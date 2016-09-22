@@ -17,14 +17,14 @@ elixir(function(mix) {
     mix
     .styles([
         'node_modules/admin-lte/bootstrap/css/bootstrap.css',
-        'node_modules/admin-lte/dist/css/AdminLTE.css',
-        'node_modules/admin-lte/dist/css/skins/skin-blue.css',
         'node_modules/font-awesome/css/font-awesome.css',
         'node_modules/ionicons/dist/css/ionicons.css',
         'node_modules/admin-lte/plugins/iCheck/square/blue.css',
         'node_modules/admin-lte/plugins/select2/select2.css',
         'node_modules/admin-lte/plugins/datatables/dataTables.bootstrap.css',
         'node_modules/admin-lte/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css',
+        'node_modules/admin-lte/dist/css/AdminLTE.css',
+        'node_modules/admin-lte/dist/css/skins/skin-blue.css',
         'resources/assets/css/app.css'
     ], 'public/css/all.css', './')
     .copy('node_modules/font-awesome/fonts', 'public/build/fonts')
@@ -42,6 +42,8 @@ elixir(function(mix) {
         'node_modules/admin-lte/plugins/datatables/jquery.dataTables.min.js',
         'node_modules/admin-lte/plugins/datatables/dataTables.bootstrap.min.js',
         'node_modules/admin-lte/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js',
+        'node_modules/admin-lte/plugins/flot/jquery.flot.min.js',
+        'node_modules/admin-lte/plugins/flot/jquery.flot.pie.min.js',
         'resources/assets/js/icheck.js',
         'resources/assets/js/sidebar.js',
         'resources/assets/js/select2.js',
