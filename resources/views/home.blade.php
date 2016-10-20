@@ -7,11 +7,12 @@ Dashboard
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            @include('box.dashboard.herds')
-        </div>
+<div class="row">
+    <div class="col-md-3">
+        @include('box.dashboard.herds')
+    </div>
+    <div class="col-md-9">
+        @include('box.dashboard.incomingTreatments')
     </div>
 </div>
 @endsection

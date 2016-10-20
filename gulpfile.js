@@ -44,6 +44,7 @@ elixir(function(mix) {
         'node_modules/admin-lte/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js',
         'node_modules/admin-lte/plugins/flot/jquery.flot.min.js',
         'node_modules/admin-lte/plugins/flot/jquery.flot.pie.min.js',
+        'node_modules/moment/moment.js',
         'resources/assets/js/icheck.js',
         'resources/assets/js/sidebar.js',
         'resources/assets/js/select2.js',

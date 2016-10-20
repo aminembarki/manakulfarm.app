@@ -26,6 +26,7 @@ class DashboardController extends Controller
             switch (get_class($model)) {
                 case Treatment::class:
                     $model->url = route('treatment.show', ['treatment' => $model]);
+                    $model->typeName = $model->getTypeName();
                     break;
 
                 case Breeding::class:

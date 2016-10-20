@@ -28,4 +28,9 @@ class Treatment extends Model
     {
         return $this->morphTo();
     }
+
+    public function getTypeName()
+    {
+        return $this->typeList[$this->type];
+    }
 }
