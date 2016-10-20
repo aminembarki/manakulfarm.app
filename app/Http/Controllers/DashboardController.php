@@ -51,7 +51,7 @@ class DashboardController extends Controller
     }
 
     public function treatmentsNotDone() {
-        $treatments = Treatment::where('done', false)->get();
+        $treatments = Treatment::where('done', false)->orderBy('date')->get();
         $this->attachData($treatments);
         return $treatments;
     }
