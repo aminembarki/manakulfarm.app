@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Breeding')
+@section('title', trans('m.breeding'))
 
 @section('header')
-Breeding <small>Create</small>
+    @lang('m.breeding') <small>@lang('m.create')</small>
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@ Breeding <small>Create</small>
     <div class="col-md-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Breeding Create</h3>
+                <h3 class="box-title">@lang('m.create')</h3>
             </div>
             
             @include('breeding.form')

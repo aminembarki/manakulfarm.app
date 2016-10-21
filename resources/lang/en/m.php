@@ -28,6 +28,7 @@ return [
     'update' => strtoupper('Update'),
     'edit' => strtoupper('Edit'),
     'delete' => strtoupper('Delete'),
+    'cancel' => strtoupper('Cancel'),
 
 
     'serial' => strtoupper('Serial'),
@@ -38,11 +39,19 @@ return [
 
     'info' => strtoupper(':name Info'),
 
-    'areYouSureToDelete' => strtoupper('Are you sure to delete :Name ?'),
+    'areYouSureToDelete' => strtoupper('Are you sure to delete :Name?'),
+    'createTreatmentsAsPossible' => strtoupper('Create treatements as possible'),
+    'createForTreatmentAndDirectBack' => strtoupper('Create for treatment and redirect back'),
 
     'serviceDate' => strtoupper('Service Date'),
     'inCharge' => strtoupper('In Charge'),
     'status' => strtoupper('Status'),
     'calvingDate' => strtoupper('Calving Date'),
     'dryDate' => strtoupper('Dry Date'),
+
+    'list' => strtoupper('List'),
+
+    'changeBreedingStatus' => strtoupper('Change Breeding Status'),
+    'areYouSureToChangeStatusTo' => strtoupper('Are you sure change status to'),
+    'on' => strtoupper('on'),
 ];

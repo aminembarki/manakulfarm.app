@@ -1,25 +1,25 @@
 <div class="box box-primary">
     <div class="box-header">
-        <h3 class="box-title">Breeder Info</h3>
+        <h3 class="box-title">@lang('m.info', ['name' => trans('m.breeding')])</h3>
         @if (isset($edit) && $edit)
-        <a href="{{route('breeding.edit', ['breeding' => $breeding])}}" class="pull-right"><i class="fa fa-edit"></i> Edit</a>
+        <a href="{{route('breeding.edit', ['breeding' => $breeding])}}" class="pull-right"><i class="fa fa-edit"></i> @lang('m.edit')</a>
         @endif
     </div>
     <div class="box-body">
         <dl class="dl-horizontal">
-            <dt>Name</dt>
+            <dt>@lang('m.name')</dt>
             <dd>{{ $breeding->cow->name }}</dd>
-            <dt>Breeder</dt>
+            <dt>@lang('m.breeder')</dt>
             <dd>{{ $breeding->breeder->name }}</dd>
-            <dt>Service Date</dt>
+            <dt>@lang('m.serviceDate')</dt>
             <dd>@date($breeding->service_date)</dd>
-            <dt>In Charge</dt>
+            <dt>@lang('m.inCharge')</dt>
             <dd>{{ $breeding->in_charge or null }}</dd>
-            <dt>Status</dt>
+            <dt>@lang('m.status')</dt>
             <dd>{{ $breeding->getStatusName() }}</dd>
-            <dt>Calving Date</dt>
+            <dt>@lang('m.calvingDate')</dt>
             <dd>@date($breeding->getCalvingDate())</dd>
-            <dt>Dry Date</dt>
+            <dt>@lang('m.dryDate')</dt>
             <dd>@date($breeding->getDryDate())</dd>
         </dl>
     </div>
@@ -41,13 +41,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Change Breeding Status</h4>
+                        <h4 class="modal-title">@lang('m.changeBreedingStatus')</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group" style="font-weight: normal;">
-                            Are you sure change status to {{$status['name']}}
+                            @lang('m.areYouSureToChangeStatusTo') {{$status['name']}}
                             @if ( in_array($status['status'], $breeding->calvingStatus) )
-                            on <div class="input-group">
+                            @lang('m.on')
+                            <div class="input-group">
                                 {{ Form::date('date', date('Y-m-d'), ['class' => 'form-control']) }}
                             </div>
                             @endif
@@ -55,7 +56,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> No</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> @lang('m.cancel')</button>
                         <button type="submit" class="btn {{$status['btn']}}">
                             <i class="fa {{$status['icon']}}"></i> {{$status['name']}}
                         </button>

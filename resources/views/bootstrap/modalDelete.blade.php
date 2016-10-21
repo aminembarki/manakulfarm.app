@@ -7,11 +7,11 @@
                 <h4 class="modal-title" id="delete">{{ $header or 'Delete'}}</h4>
             </div>
             <div class="modal-body">
-                {{ $body or 'Are you sure to delete'}}
+                {{ $body or trans('m.areYouSureToDelete', ['name' => ''])}}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
-                <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i> Delete</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> @lang('m.cancel')</button>
+                <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i> @lang('m.delete')</button>
             </div>
         </div>
         {{ Form::close() }}

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Breeding')
+@section('title', trans('m.breeding'))
 
 @section('header')
-Breeding <small>Edit</small>
+    @lang('m.breeding') <small>{{$breeding->cow->name}}</small>
 @endsection
 
 @section('content')

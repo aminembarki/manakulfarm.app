@@ -3,7 +3,7 @@
 @section('title', trans('m.cow'))
 
 @section('header')
-    @lang('m.cow')
+    @lang('m.cow') <small>@lang('m.list')</small>
 @endsection
 
 @section('content')
