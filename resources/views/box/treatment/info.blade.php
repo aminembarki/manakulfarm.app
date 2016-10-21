@@ -12,7 +12,7 @@
             <dt>Date</dt>
             <dd>{{$treatment->date ? $treatment->date->format('d/m/Y') : null}}</dd>
             <dt>Type</dt>
-            <dd>{{$treatment->typeList[$treatment->type]}}</dd>
+            <dd>{{$treatment->getTypeList()[$treatment->type]}}</dd>
             <dt>Summary</dt>
             <dd>{{$treatment->summary}}</dd>
             <dt>In Charge</dt>

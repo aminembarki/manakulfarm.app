@@ -11,14 +11,16 @@ class Treatment extends Model
     protected $fillable = ['cow_id', 'date', 'type', 'summary', 'in_charge', 'cost', 'done', 'treatable_id', 'treatable_type'];
     protected $dates = ['date'];
 
-    public $typeList = [
-        'BREEDING' => 'Breeding',
-        'PREGNANCY_DIAGNOSE' => 'Pregnancy Diagnose',
-        'MEDICATION' => 'Medication',
-        'VACCIANTION' => 'Vaccination',
-        'ACCIDENT' => 'Accident',
-        'OTHER' => 'Other',
-    ];
+    public function getTypeList() {
+        return [
+            'BREEDING' => trans('m.breeding'),
+            'PREGNANCY_DIAGNOSE' => trans('m.pregnancyDiagnose'),
+            'MEDICATION' => trans('m.medication'),
+            'VACCIANTION' => trans('m.vacciantion'),
+            'ACCIDENT' => trans('m.accident'),
+            'OTHER' => trans('m.other'),
+        ];
+    }
 
     public function cow() {
         return $this->belongsTo(Cow::class);
@@ -31,6 +33,6 @@ class Treatment extends Model
 
     public function getTypeName()
     {
-        return $this->typeList[$this->type];
+        return $this->getTypeList()[$this->type];
     }
 }

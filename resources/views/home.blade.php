@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', trans('m.dashboard'))
 
 @section('header')
-Dashboard
+    @lang('m.dashboard')
 @endsection
 
 @section('content')

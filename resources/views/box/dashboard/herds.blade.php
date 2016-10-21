@@ -1,7 +1,7 @@
 <div class="box">
     <div class="box-header with-border">
         <i class="fa fa-bar-chart-o"></i>
-        <h3 class="box-title">Herd Pie Chart</h3>
+        <h3 class="box-title">@lang('m.herd')</h3>
     </div>
     <div class="box-body">
         <div id="herd-pie-chart" style="height: 300px;"></div>

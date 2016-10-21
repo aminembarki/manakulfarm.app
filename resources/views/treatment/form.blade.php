@@ -18,7 +18,7 @@
 
     <div class="form-group">
         {{ Form::label('type', 'Type') }}
-        {{ Form::select('type', $treatment->typeList, $treatment->type, ['class' => 'form-control', 'placeholder' => '']) }}                    
+        {{ Form::select('type', $treatment->getTypeList(), $treatment->type, ['class' => 'form-control', 'placeholder' => '']) }}                    
     </div>
 
     <div class="form-group">

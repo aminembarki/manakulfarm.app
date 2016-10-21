@@ -1,7 +1,7 @@
 <div class="box">
     <div class="box-header with-border">
         <i class="fa fa-bar-chart-o"></i>
-        <h3 class="box-title">Incoming Clavings</h3>
+        <h3 class="box-title">@lang('m.incomingCalvings')</h3>
     </div>
     <div class="box-body">
         <table id="incoming-calvings" class="table"></table>
@@ -29,9 +29,9 @@
                 data: dataSet,
                 ordering: false,
                 columns: [
-                    { title: "Name" },
-                    { title: "Date" },
-                    { title: "Breeder" }
+                    { title: "@lang('m.name')" },
+                    { title: "@lang('m.date')" },
+                    { title: "@lang('m.breeder')" }
                 ]
             });
         });

@@ -42,7 +42,7 @@
                     $index + 1,
                     link_to_route('treatment.show', $treatment->cow->name, ['treatment' => $treatment])->toHtml(),
                     $treatment->date ? $treatment->date->format('d/m/Y') : null,
-                    $treatment->typeList[$treatment->type],
+                    $treatment->getTypeList()[$treatment->type],
                     $treatment->summary,
                     $treatment->in_charge,
                     $treatment->cost ?: null,
