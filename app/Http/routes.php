@@ -37,3 +37,5 @@ Route::group(['prefix' => 'dashboard'], function() {
     Route::get('breedings/pregnant', 'DashboardController@breedingsPregnant');
     Route::get('treatments/notdone', 'DashboardController@treatmentsNotDone');
 });
+
+Route::get('artisan/migrate', 'ArtisanController@migrate');
