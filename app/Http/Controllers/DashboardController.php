@@ -31,6 +31,7 @@ class DashboardController extends Controller
 
                 case Breeding::class:
                     $model->url = route('breeding.show', ['breeding' => $model]);
+                    $model->breeder;
                     break;
             }
             $model->cows;
@@ -45,15 +46,15 @@ class DashboardController extends Controller
         return $herds;
     }
 
-    public function breedingsByStatus($status) {
-        $breedings = Breeding::where('status', $status)->get();
-        $this->attachData($breedings);
-        return $breedings;
-    }
-
     public function treatmentsNotDone() {
         $treatments = Treatment::where('done', false)->orderBy('date')->get();
         $this->attachData($treatments);
         return $treatments;
+    }
+
+    public function breedingsPregnant() {
+        $breeding = Breeding::where('status', 'PREGNANT')->orderBy('calving_date')->get();
+        $this->attachData($breeding);
+        return $breeding;
     }
 }

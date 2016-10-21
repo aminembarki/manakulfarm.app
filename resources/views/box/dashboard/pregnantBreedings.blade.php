@@ -1,10 +1,10 @@
 <div class="box">
     <div class="box-header with-border">
         <i class="fa fa-bar-chart-o"></i>
-        <h3 class="box-title">Incoming Treatments</h3>
+        <h3 class="box-title">Incoming Clavings</h3>
     </div>
     <div class="box-body">
-        <table id="incoming-treatments" class="table"></table>
+        <table id="incoming-calvings" class="table"></table>
     </div>
 </div>
 
@@ -13,28 +13,28 @@
 <script type="text/javascript">
     (function(url) {
         $.get(url, function(data) {
-            var dataSet = data.map(function(treatment) {
-                var date = moment(treatment.date)
+            var dataSet = data.map(function(breeding) {
+                var date = moment(breeding.calving_date)
                 var dateFormat = date.format('DD/MM/YYYY')
                 var dateFromNow = date.fromNow()
                 return [
-                    `<a href="${treatment.url}">${treatment.cow.name}</a>`,
+                    `<a href="${breeding.url}">${breeding.cow.name}</a>`,
                     `${dateFormat} <span class="text-danger">(${dateFromNow})</span>`,
-                    treatment.typeName
+                    breeding.breeder.name
                 ]
             });
 
             console.log(data, dataSet)
-            $('#incoming-treatments').DataTable({
+            $('#incoming-calvings').DataTable({
                 data: dataSet,
                 ordering: false,
                 columns: [
                     { title: "Name" },
                     { title: "Date" },
-                    { title: "Type" }
+                    { title: "Breeder" }
                 ]
             });
         });
-    })("{{url('dashboard/treatments/notdone')}}")
+    })("{{url('dashboard/breedings/pregnant')}}")
 </script>
 @endsection

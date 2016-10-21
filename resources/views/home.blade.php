@@ -8,11 +8,12 @@ Dashboard
 
 @section('content')
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
         @include('box.dashboard.herds')
     </div>
-    <div class="col-md-9">
+    <div class="col-md-8">
         @include('box.dashboard.incomingTreatments')
+        @include('box.dashboard.pregnantBreedings')
     </div>
 </div>
 @endsection
