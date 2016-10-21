@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Cow')
+@section('title', trans('m.cow'))
 
 @section('header')
-    Cow <small>Create</small>
+    @lang('m.cow')
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Cow Create</h3>
+                <h3 class="box-title">@lang('m.create')</h3>
             </div>
             @include('cow.form')
         </div>

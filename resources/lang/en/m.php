@@ -23,4 +23,26 @@ return [
 
     'herd' => strtoupper('Herd'),
 
+    'create' => strtoupper('Create'),
+    'save' => strtoupper('Save'),
+    'update' => strtoupper('Update'),
+    'edit' => strtoupper('Edit'),
+    'delete' => strtoupper('Delete'),
+
+
+    'serial' => strtoupper('Serial'),
+    'mother' => strtoupper('Mother'),
+    'birthdate' => strtoupper('Birthdate'),
+
+    'images' => strtoupper('Images'),
+
+    'info' => strtoupper(':name Info'),
+
+    'areYouSureToDelete' => strtoupper('Are you sure to delete :Name ?'),
+
+    'serviceDate' => strtoupper('Service Date'),
+    'inCharge' => strtoupper('In Charge'),
+    'status' => strtoupper('Status'),
+    'calvingDate' => strtoupper('Calving Date'),
+    'dryDate' => strtoupper('Dry Date'),
 ];

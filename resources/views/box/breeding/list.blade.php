@@ -1,6 +1,6 @@
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title">Breedings</h3>
+        <h3 class="box-title">@lang('m.breeding')</h3>
     </div>
     <div class="box-body">
         <table class="table table-hover no-wrap" id={{ $id = uniqid() }}></table>
@@ -16,7 +16,6 @@
         var dataSet = {!!
             $breedings->map(function($breeding, $index) {
                 return [
-                $index + 1,
                 link_to_route('breeding.show', $breeding->cow->name, ['breeding' => $breeding])->toHtml(),
                 $breeding->breeder->name,
                 $breeding->service_date ? $breeding->service_date->format('d/m/Y') : null,
@@ -30,21 +29,21 @@
 
         var table = $('#{{ $id }}').DataTable({
             data: dataSet,
+            ordering: false,
             responsive: true,
             columns: [
-                { title: "#"},
-                { title: "Name"},
-                { title: "Breeder"},
-                { title: "Service Date"},
-                { title: "In Charge"},
-                { title: "Status"},
-                { title: "Calving Date"},
-                { title: "Dry Date"}
+                { title: "@lang('m.name')"},
+                { title: "@lang('m.breeder')"},
+                { title: "@lang('m.serviceDate')"},
+                { title: "@lang('m.inCharge')"},
+                { title: "@lang('m.status')"},
+                { title: "@lang('m.calvingDate')"},
+                { title: "@lang('m.dryDate')"}
             ],
             columnDefs: [
-                { type: 'date-uk', targets: 3 },
-                { type: 'date-uk', targets: 6 },
-                { type: 'date-uk', targets: 7 }
+                { type: 'date-uk', targets: 2 },
+                { type: 'date-uk', targets: 5 },
+                { type: 'date-uk', targets: 6 }
             ]
         });
 

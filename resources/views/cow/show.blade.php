@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Cow')
+@section('title', trans('m.cow'))
 
 @section('header')
-Cow <small>{{$cow->name}}</small>
+    @lang('m.cow') <small>{{$cow->name}}</small>
 @endsection
 
 @section('content')
