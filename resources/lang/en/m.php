@@ -54,4 +54,10 @@ return [
     'changeBreedingStatus' => strtoupper('Change Breeding Status'),
     'areYouSureToChangeStatusTo' => strtoupper('Are you sure change status to'),
     'on' => strtoupper('on'),
+
+    'summary' => strtoupper('Summary'),
+    'cost' => strtoupper('Cost'),
+    'done' => strtoupper('Done'),
+
+    'select' => strtoupper('Select')
 ];

@@ -1,25 +1,25 @@
 <div class="box box-primary">
     <div class="box-header with-border">
-        <h3 class="box-title">Treatment Info</h3>
+        <h3 class="box-title">@lang('m.info', ['name' => trans('m.treatment')])</h3>
         @if(isset($edit) && $edit)
-        <a href="{{route('treatment.edit', ['treatment' => $treatment])}}" class="pull-right"><i class="fa fa-edit"></i> Edit</a>
+        <a href="{{route('treatment.edit', ['treatment' => $treatment])}}" class="pull-right"><i class="fa fa-edit"></i> @lang('m.edit')</a>
         @endif
     </div>
     <div class="box-body">
         <dl class="dl-horizontal">
-            <dt>Cow</dt>
+            <dt>@lang('m.cow')</dt>
             <dd>{{$treatment->cow->name}}</dd>
-            <dt>Date</dt>
+            <dt>@lang('m.date')</dt>
             <dd>{{$treatment->date ? $treatment->date->format('d/m/Y') : null}}</dd>
-            <dt>Type</dt>
+            <dt>@lang('m.type')</dt>
             <dd>{{$treatment->getTypeList()[$treatment->type]}}</dd>
-            <dt>Summary</dt>
+            <dt>@lang('m.summary')</dt>
             <dd>{{$treatment->summary}}</dd>
-            <dt>In Charge</dt>
+            <dt>@lang('m.inCharge')</dt>
             <dd>{{$treatment->in_charge}}</dd>
-            <dt>Cost</dt>
+            <dt>@lang('m.cost')</dt>
             <dd>{{$treatment->cost ?: null}}</dd>
-            <dt>Done</dt>
+            <dt>@lang('m.done')</dt>
             <dd>{{$treatment->done ?: null}}</dd>
         </dl>
     </div>

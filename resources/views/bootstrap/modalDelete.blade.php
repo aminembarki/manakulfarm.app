@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="delete">{{ $header or 'Delete'}}</h4>
+                <h4 class="modal-title" id="delete">{{ $header or trans('m.delete')}}</h4>
             </div>
             <div class="modal-body">
                 {{ $body or trans('m.areYouSureToDelete', ['name' => ''])}}
