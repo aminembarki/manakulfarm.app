@@ -6,13 +6,12 @@ use App\Breeder;
 
 trait BreederTrait {
 
-    public function findOrCreateBreeder($breeder) {
-
-        if ($breeder) {
-            if ($breeder = Breeder::find($breeder));
-            elseif($breeder = Breeder::where('name', $breeder)->first());
-            else $breeder = Breeder::create(['name' => $breeder]);
-            return $breeder->id;
+    public function findOrCreateBreeder(&$breederId) {
+        if ($breederId) {
+            if ($breeder = Breeder::find($breederId));
+            elseif($breeder = Breeder::where('name', $breederId)->first());
+            else $breeder = Breeder::create(['name' => $breederId]);
+            return $breederId = $breeder->id;
         }
 
         return null;

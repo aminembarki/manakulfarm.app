@@ -63,7 +63,7 @@ class BreedingController extends Controller
     public function store(BreedingRequest $request)
     {
         $params = $request->all();
-        $params['breeding_id'] = $this->findOrCreateBreeder($params['breeder_id']);
+        $this->findOrCreateBreeder($params['breeder_id']);
         $breeding = Breeding::create($params);
 
         if ($treatmentId = $request->input('treatment_id')) {
@@ -112,7 +112,7 @@ class BreedingController extends Controller
     public function update(BreedingRequest $request, Breeding $breeding)
     {
         $params = $request->all();
-        $params['breeding_id'] = $this->findOrCreateBreeder($params['breeder_id']);
+        $this->findOrCreateBreeder($params['breeder_id']);
         $params['calving_date'] = $params['calving_date'] ?: null;
         $params['dry_date'] = $params['dry_date'] ?: null;
         $breeding->update($params);

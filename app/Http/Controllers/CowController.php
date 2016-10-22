@@ -93,7 +93,7 @@ class CowController extends Controller
     {
         $params = $request->all();
         $params['birthdate'] = $params['birthdate'] ?: null;
-        $params['breeder_id'] = $this->findOrCreateBreeder($params['breeder_id']);
+        $this->findOrCreateBreeder($params['breeder_id']);
         $cow->update($params);
         $cow->uploadImages( $request->file("images") );
         return redirect( route('cow.show', ['cow' => $cow]) );
