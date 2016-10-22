@@ -2,62 +2,62 @@
 
 return [
 
-    'dashboard' => strtoupper('Dashboard'),
-    'incomingTreatments' => strtoupper('Incoming Treatments'),
-    'incomingCalvings' => strtoupper('Incoming Clavings'),
+    'dashboard' => 'Dashboard',
+    'incomingTreatments' => 'Incoming Treatments',
+    'incomingCalvings' => 'Incoming Clavings',
 
-    'name' => strtoupper('Name'),
-    'date' => strtoupper('Date'),
-    'type' => strtoupper('Type'),
-    'breeder' => strtoupper('Breeder'),
+    'name' => 'Name',
+    'date' => 'Date',
+    'type' => 'Type',
+    'breeder' => 'Breeder',
 
-    'cow' => strtoupper('Cow'),
-    'treatment' => strtoupper('Treatment'),
+    'cow' => 'Cow',
+    'treatment' => 'Treatment',
 
-    'breeding' => strtoupper('Breeding'),
-    'pregnancyDiagnose' => strtoupper('Pregnancy Diagnose'),
-    'medication' => strtoupper('Medication'),
-    'vacciantion' => strtoupper('Vaccination'),
-    'accident' => strtoupper('Accident'),
-    'other' => strtoupper('Other'),
+    'breeding' => 'Breeding',
+    'pregnancyDiagnose' => 'Pregnancy Diagnose',
+    'medication' => 'Medication',
+    'vacciantion' => 'Vaccination',
+    'accident' => 'Accident',
+    'other' => 'Other',
 
-    'herd' => strtoupper('Herd'),
+    'herd' => 'Herd',
 
-    'create' => strtoupper('Create'),
-    'save' => strtoupper('Save'),
-    'update' => strtoupper('Update'),
-    'edit' => strtoupper('Edit'),
-    'delete' => strtoupper('Delete'),
-    'cancel' => strtoupper('Cancel'),
+    'create' => 'Create',
+    'save' => 'Save',
+    'update' => 'Update',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'cancel' => 'Cancel',
 
 
-    'serial' => strtoupper('Serial'),
-    'mother' => strtoupper('Mother'),
-    'birthdate' => strtoupper('Birthdate'),
+    'serial' => 'Serial',
+    'mother' => 'Mother',
+    'birthdate' => 'Birthdate',
 
-    'images' => strtoupper('Images'),
+    'images' => 'Images',
 
-    'info' => strtoupper(':name Info'),
+    'info' => ':name Info',
 
-    'areYouSureToDelete' => strtoupper('Are you sure to delete :Name?'),
-    'createTreatmentsAsPossible' => strtoupper('Create treatements as possible'),
-    'createForTreatmentAndDirectBack' => strtoupper('Create for treatment and redirect back'),
+    'areYouSureToDelete' => 'Are you sure to delete :Name?',
+    'createTreatmentsAsPossible' => 'Create treatements as possible',
+    'createForTreatmentAndDirectBack' => 'Create for treatment and redirect back',
 
-    'serviceDate' => strtoupper('Service Date'),
-    'inCharge' => strtoupper('In Charge'),
-    'status' => strtoupper('Status'),
-    'calvingDate' => strtoupper('Calving Date'),
-    'dryDate' => strtoupper('Dry Date'),
+    'serviceDate' => 'Service Date',
+    'inCharge' => 'In Charge',
+    'status' => 'Status',
+    'calvingDate' => 'Calving Date',
+    'dryDate' => 'Dry Date',
 
-    'list' => strtoupper('List'),
+    'list' => 'List',
 
-    'changeBreedingStatus' => strtoupper('Change Breeding Status'),
-    'areYouSureToChangeStatusTo' => strtoupper('Are you sure change status to'),
-    'on' => strtoupper('on'),
+    'changeBreedingStatus' => 'Change Breeding Status',
+    'areYouSureToChangeStatusTo' => 'Are you sure change status to',
+    'on' => 'on',
 
-    'summary' => strtoupper('Summary'),
-    'cost' => strtoupper('Cost'),
-    'done' => strtoupper('Done'),
+    'summary' => 'Summary',
+    'cost' => 'Cost',
+    'done' => 'Done',
 
-    'select' => strtoupper('Select')
+    'select' => 'Select',
 ];
