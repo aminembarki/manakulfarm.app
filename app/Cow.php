@@ -35,7 +35,7 @@ class Cow extends Model
 
     public function uploadImages($images = []) {
         foreach ($images as $image) {
-            if ($url = Image::upload($image))
+            if ($image && $url = Image::upload($image))
                 $this->images()->create(compact('url'));
         }
         return $this->images;

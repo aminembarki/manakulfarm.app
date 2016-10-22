@@ -55,7 +55,7 @@ class CowController extends Controller
      */
     public function store(CowRequest $request)
     {
-        $params = $this->params($request);
+        $params = $request->all();
         $cow = Cow::create($params);
         return redirect( route('cow.show', ['cow' => $cow]) );
     }
