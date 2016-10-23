@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password Reset Language Lines
+    | Password Reminder Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are the default lines which match reasons
@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'password' => 'Passwords must be at least six characters and match the confirmation.',
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have e-mailed your password reset link!',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that e-mail address.",
+    'password' => 'รหัสผ่านต้องมีความยาวอย่างน้อยหกตัวอักษรและต้องตรงกับช่องยืนยันรหัสผ่าน',
+    'reset'    => 'ทำการตั้งค่ารหัสผ่านใหม่แล้ว',
+    'sent'     => 'ส่งเครื่องช่วยเตือนความจำรหัสผ่านแล้ว!',
+    'token'    => 'ชุดรหัสสำหรับการเปลี่ยนรหัสผ่านไม่ถูกต้อง',
+    'user'     => 'ไม่พบผู้ใช้งานที่ตรงกับอีเมล์นี้',
 
 ];
